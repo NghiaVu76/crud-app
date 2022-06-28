@@ -5,61 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Nunito+Sans:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
   </head>
   <body>
     <div class="container">
         <div class="navbar">
-
-        </div>
-        <hr>
-        <div class="sidebar">
-            <div class="sidebar-content">
-                <div class="sidebar-overview">
-
-                </div>
-                <div class="sidebar-items">
-
-                </div>
-                <div class="sidebar-bottom">
-                    <button>Thu gọn</button>
+            <div class="navbar-content">
+                <div class="navbar-left-content">CRUD</div>
+                <div class="navbar-right-content">
+                    <div class="navbar-actions">
+                        <i class="fa fa-bell"></i>
+                    </div>
+                    <div class="navbar-user">
+                        <img src="https://kenh14cdn.com/2019/2/15/8-15502075818842118741287.jpg" alt="ảnh"/>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="dashboard">
-            <div class="dashboard-content">
-                <div class="dashboard-chart">
-                    <div class="dashboard-chart-container">
-                        <div class="dashboard-chart-header">
-                            <h1>Doanh thu</h1>
+        <div class="separator">
+        </div>
+        <div class="homepage">
+            <div class="sidebar">
+                <div class="sidebar-content">
+                    <div class="sidebar-overview">
+                        <div class="sidebar-overview-content">
+                            <div class="sidebar-overview-content-icon">
+                                <i class="fas fa-solid fa-square-poll-vertical"></i>
+
+                            </div>
+                            <div class="sidebar-overview-content-text">Bảng điều khiển</div>
                         </div>
-                        <div class="dashboard-chart-content">
-                            <div class="dashboard-chart-content-tooltip"></div>
-                        </div>
+                    </div>
+                    <div class="sidebar-items">
+                    </div>
+                    <div class="sidebar-bottom">
+                        <button>Thu gọn</button>
                     </div>
                 </div>
-                <div class="dashboard-tactics">
-                    <div class="dashboard-tactics-customers">
-                        <div class="dashboard-tactics-customers-header">
-                            <h1>Khách hàng gần nhất</h1>
+            </div>
+            <div class="dashboard">
+                <div class="dashboard-content">
+                    <div class="dashboard-chart">
+                        <div class="dashboard-chart-container">
+                            <div class="dashboard-chart-header">
+                                <h1>Doanh thu</h1>
+                            </div>
+                            <div class="dashboard-chart-content">
+                                <canvas id="myChart"></canvas>
+                                <div class="dashboard-chart-content-tooltip"></div>
+                            </div>
                         </div>
-                        <div class="dashboard-tactics-customers-content"></div>
                     </div>
-                    <div class="dashboard-tactics-products">
-                        <div class="dashboard-tactics-products-header"></div>
-                        <div class="dashboard-tactics-products-content"></div>
-                    </div>
-                </div>
-                <div class="dashboard-table">
-                    <div class="dashboard-table-container">
-                        <div class="dashboard-table-header">
+                    <div class="dashboard-tactics">
+                        <div class="dashboard-tactics-customers">
+                            <div class="dashboard-tactics-customers-header">
+                                <h1>Khách hàng mới</h1>
+                            </div>
+                            <div class="dashboard-tactics-customers-content">
+
+                            </div>
                         </div>
-                        <div class="dashboard-table-content"></div>
+                        <div class="dashboard-tactics-products">
+                            <div class="dashboard-tactics-products-header">
+                                <h1>Sản phẩm bán chạy</h1>
+                            </div>
+                            <div class="dashboard-tactics-products-content"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="dashboard-footer">
-                    <div class="dashboard-footer-title"></div>
-                    <div class="dashboard-footer-group"></div>
+                    <div class="dashboard-table">
+                        <div class="dashboard-table-container">
+                            <div class="dashboard-table-header">
+                                <h1>Đơn hàng gần nhất</h1>
+                                <h2>Danh sách 6 đơn hàng gần nhất</h2>
+                            </div>
+                            <div class="dashboard-table-content"></div>
+                        </div>
+                    </div>
+                    <div class="dashboard-footer">
+                        <div class="dashboard-footer-content">
+                            <div class="dashboard-footer-title">© 2022 VnSolution. All rights reserved.</div>
+                            <div class="dashboard-footer-group">social links</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
