@@ -19,6 +19,35 @@ const menuItems = [
     class: "fa-solid fa-cart-flatbed",
     title: "Đơn hàng",
   },
+  {
+    class: "fa-solid fa-cart-flatbed",
+    title: "Đơn hàng",
+  },
+  {
+    class: "fa-solid fa-cart-flatbed",
+    title: "Đơn hàng",
+  },
+  {
+    class: "fa-solid fa-cart-flatbed",
+    title: "Đơn hàng",
+  },
+
+  {
+    class: "fa-solid fa-cart-flatbed",
+    title: "Đơn hàng",
+  },
+  {
+    class: "fa-solid fa-cart-flatbed",
+    title: "Đơn hàng",
+  },
+  {
+    class: "fa-solid fa-cart-flatbed",
+    title: "Đơn hàng",
+  },
+  {
+    class: "fa-solid fa-cart-flatbed",
+    title: "Đơn hàng",
+  },
 ];
 
 const customerItems = [
@@ -231,3 +260,90 @@ const createProductList = () => {
 };
 
 createProductList();
+
+const tableData = [
+  {
+    customerName: "Nguyễn Văn A",
+    time: "Jun 23, 2022",
+    totalPrice: "2.300.00 VNĐ",
+    status: "Hoàn thành",
+  },
+  {
+    customerName: "Nguyễn Văn B",
+    time: "Jun 23, 2022",
+    totalPrice: "2.300.00 VNĐ",
+    status: "Hoàn thành",
+  },
+  {
+    customerName: "Nguyễn Văn C",
+    time: "Jun 23, 2022",
+    totalPrice: "2.300.00 VNĐ",
+    status: "Đã hủy",
+  },
+  {
+    customerName: "Nguyễn Văn E",
+    time: "Jun 23, 2022",
+    totalPrice: "2.300.00 VNĐ",
+    status: "Đang giao",
+  },
+  {
+    customerName: "Nguyễn Văn F",
+    time: "Jun 23, 2022",
+    totalPrice: "2.300.00 VNĐ",
+    status: "Đã hủy",
+  },
+  {
+    customerName: "Nguyễn Văn G",
+    time: "Jun 23, 2022",
+    totalPrice: "2.300.00 VNĐ",
+    status: "Đang giao",
+  },
+  {
+    customerName: "Nguyễn Văn A",
+    time: "Jun 23, 2022",
+    totalPrice: "2.300.00 VNĐ",
+    status: "Hoàn thành",
+  },
+  {
+    customerName: "Nguyễn Văn A",
+    time: "Jun 23, 2022",
+    totalPrice: "2.300.00 VNĐ",
+    status: "Hoàn thành",
+  },
+];
+
+const tBody = tableData
+  .map(function (value) {
+    return `<tr>
+            <td>${value.customerName}</td>
+            <td>${value.time}</td>
+            <td>${value.totalPrice}</td>
+            <td>${value.status}</td>
+        </tr>`;
+  })
+  .join("");
+const tabelBody = document.querySelector("#tableBody");
+tableBody.innerHTML = tBody;
+
+const socialIcons = [
+  {
+    class: "fa-brands fa-facebook-f",
+  },
+  {
+    class: "fa-brands fa-twitter",
+  },
+  {
+    class: "fa-brands fa-instagram",
+  },
+  {
+    class: "fa-brands fa-weibo",
+  },
+];
+const socialLink = document.querySelector(".dashboard-footer-group");
+const createSocialLink = () => {
+  socialIcons.forEach((item) => {
+    socialLink.innerHTML += `<i class="${item.class}"></i>`;
+  });
+};
+
+createSocialLink();
