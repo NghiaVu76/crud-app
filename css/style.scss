@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Nunito+Sans:wght@200;300;400;600;700&display=swap");
 
 @import "color.scss";
+@import "media-queries.scss";
 
 :root {
   --font-family: "Inter", sans-serif;
@@ -17,6 +18,7 @@ body {
   overflow-y: overlay;
   margin: 0;
   padding: 0;
+
 }
 
 html *::-webkit-scrollbar {
@@ -59,11 +61,32 @@ html *::-webkit-scrollbar-track {
     flex-direction: row;
     width: 30%;
     margin-left: 16px;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 150%;
 
-    text-align: center;
+
+    &-logo {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 150%;
+      text-align: center;
+
+      @include mobile {
+        display: none;
+      }
+    }
+
+    &-bars {
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      @include mobile {
+        opacity: 1;
+        position: absolute;
+        font-size: 2rem;
+        color: var(--cool-gray-900);
+      }
+    }
   }
 
   &-right-content {
@@ -85,7 +108,14 @@ html *::-webkit-scrollbar-track {
 
     i {
       color: var(--cool-gray-900);
+      display: flex;
+      align-items: center;
+      font-size: 1.2rem;
+      transition: all 0.7s ease;
 
+      &:hover {
+        transform: scale(1.5);
+      }
     }
   }
 
@@ -115,6 +145,13 @@ html *::-webkit-scrollbar-track {
   height: 613px;
   left: 0;
 
+  @include mobile {
+    height: 100vh;
+  }
+
+  @include tablet {
+    height: calc(100vh - 71px);
+  }
 }
 
 //sidebar
@@ -126,12 +163,24 @@ html *::-webkit-scrollbar-track {
   height: 100%;
   border-right: 1px solid var(--cool-gray-200);
 
+  @include mobile {
+    display: none;
+  }
+
+  @include tablet {
+    height: 100%;
+  }
+
   &-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
     height: 613px;
+
+    @include tablet {
+      height: 100%;
+    }
   }
 
 
@@ -143,18 +192,24 @@ html *::-webkit-scrollbar-track {
     border-bottom: 1px solid var(--cool-gray-200);
     color: var(--blue-600);
     cursor: pointer;
-
+    padding-left: 15px;
 
     &-content {
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: center;
+      justify-content: start;
+      width: 100%;
+      margin: 6px;
 
       &-icon i {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 16.8px;
         height: 16.8px;
         color: var(--blue-600);
+        margin-right: 5px;
       }
 
       &-text {
@@ -168,7 +223,12 @@ html *::-webkit-scrollbar-track {
   &-items {
     width: 100%;
     height: 520px;
+    overflow-x: hidden;
     overflow-y: overlay;
+
+    @include tablet {
+      height: calc(100% - 80px);
+    }
 
 
     button {
@@ -184,6 +244,8 @@ html *::-webkit-scrollbar-track {
       font-size: 14px;
       line-height: 150%;
       color: var(--cool-gray-900);
+      transition: all 0.5s ease;
+      padding-left: 20px;
 
       i {
         width: 16.8px;
@@ -196,8 +258,11 @@ html *::-webkit-scrollbar-track {
       }
 
       &:hover {
-        background-color: var(--green-300);
+        border-radius: 10px;
+        box-shadow: var(--box-shadow);
         color: var(--blue-600);
+        transform: scale(1.1);
+        cursor: pointer;
       }
     }
   }
@@ -209,12 +274,17 @@ html *::-webkit-scrollbar-track {
     button {
       width: 100%;
       height: 32px;
-      background-color: var(--blue-800);
+      background-color: var(--blue-600);
       border: none;
       font-weight: 600;
       font-size: 12px;
       line-height: 150%;
       color: var(--blue-100);
+
+      &:hover {
+        background-color: var(--blue-800);
+        cursor: pointer;
+      }
     }
   }
 }
@@ -225,6 +295,16 @@ html *::-webkit-scrollbar-track {
   padding: 16px;
   overflow-y: overlay;
   height: 613px;
+
+  @include mobile {
+    width: 100%;
+    height: 100%;
+  }
+
+  @include tablet {
+    width: 100%;
+    height: 100%;
+  }
 
   &-content {
     display: flex;
@@ -271,9 +351,9 @@ html *::-webkit-scrollbar-track {
         width: 100%;
         max-width: 1285px;
         max-height: 430px;
-        min-width: 400px;
         min-height: 430px;
         height: 100%;
+        cursor: pointer;
       }
     }
   }
@@ -284,6 +364,14 @@ html *::-webkit-scrollbar-track {
     justify-content: space-between;
     width: 100%;
 
+    @include mobile {
+      flex-direction: column;
+    }
+
+    @include tablet {
+      flex-direction: column;
+    }
+
     &-customers {
       width: 30%;
       max-width: 380.33px;
@@ -291,6 +379,17 @@ html *::-webkit-scrollbar-track {
       box-shadow: var(--box-shadow);
       border-radius: 16px;
       padding: 16px;
+      cursor: pointer;
+
+      @include mobile {
+        width: 100%;
+      }
+
+      @include tablet {
+        width: 100%;
+        max-width: 600px;
+
+      }
 
       &-header {
         width: 100%;
@@ -313,6 +412,7 @@ html *::-webkit-scrollbar-track {
         width: 100%;
         height: 370px;
         overflow-y: auto;
+        overflow-x: hidden;
 
         div {
           width: 100%;
@@ -321,6 +421,12 @@ html *::-webkit-scrollbar-track {
           flex-direction: row;
           align-items: center;
           border-bottom: 1px solid var(--cool-gray-200);
+          transition: all 0.5s ease;
+
+          &:hover {
+            transform: scale(1.00);
+            padding-left: 30px;
+          }
 
           img {
             width: 32px;
@@ -365,6 +471,15 @@ html *::-webkit-scrollbar-track {
       box-shadow: var(--box-shadow);
       border-radius: 16px;
       padding: 16px;
+      cursor: pointer;
+
+      @include mobile {
+        width: 100%;
+      }
+
+      @include tablet {
+        width: 100%;
+      }
 
       &-header {
         width: 100%;
@@ -393,14 +508,17 @@ html *::-webkit-scrollbar-track {
           height: 64px;
           border-bottom: 1px solid var(--cool-gray-200);
 
-
           div {
             display: flex;
             flex-direction: column;
             justify-content: center;
             text-align: left;
+            transition: all 0.5s ease;
 
-            flex: 3;
+            &:hover {
+              transform: scale(1.0);
+              margin-left: 30px;
+            }
 
             h1 {
               font-weight: 600;
@@ -444,6 +562,7 @@ html *::-webkit-scrollbar-track {
     height: 473px;
     box-shadow: var(--box-shadow);
     border-radius: 16px;
+    cursor: pointer;
 
     &-container {
       width: 100%;
@@ -491,6 +610,11 @@ html *::-webkit-scrollbar-track {
         box-shadow: var(--box-shadow);
         overflow-y: overlay;
 
+        @include mobile {
+          width: 200%;
+          overflow-x: auto;
+        }
+
         thead {
           width: 100%;
           height: 50px;
@@ -499,6 +623,11 @@ html *::-webkit-scrollbar-track {
 
           th {
             border: none;
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 150%;
+            color: var(--cool-gray-500);
+            text-align: center;
           }
         }
 
@@ -513,8 +642,14 @@ html *::-webkit-scrollbar-track {
             font-weight: 600;
             font-size: 14px;
             line-height: 150%;
-
+            text-align: center;
             color: var(--cool-gray-900);
+            transition: all 0.5s ease;
+
+            &:hover {
+              transform: scale(1.2);
+              box-shadow: var(--box-shadow);
+            }
           }
         }
       }
@@ -531,12 +666,31 @@ html *::-webkit-scrollbar-track {
     box-shadow: var(--box-shadow);
     border-radius: 16px;
 
+    @include mobile {
+      height: 176px;
+    }
+
+    @include tablet {
+      height: 176px;
+    }
+
     &-content {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       width: 90%;
       height: 24px;
+
+
+      @include mobile {
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      @include tablet {
+        flex-direction: column;
+        justify-content: center;
+      }
     }
 
     &-title {
@@ -544,12 +698,42 @@ html *::-webkit-scrollbar-track {
       font-size: 16px;
       line-height: 150%;
       color: var(--cool-gray-500);
+
+      @include mobile {
+        margin: 48px 32px 35px 32px;
+      }
+
+      @include tablet {
+        margin: 48px 32px 35px 32px;
+      }
     }
 
     &-group {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      cursor: pointer;
+
+      @include mobile {
+        justify-content: start;
+        margin: 0 32px 20px 32px;
+      }
+
+      @include tablet {
+        justify-content: start;
+        margin: 0 32px 20px 32px;
+      }
+
+      i {
+        display: flex;
+        align-items: center;
+        transition: all 0.7s ease;
+        color: var(--cool-gray-900);
+
+        &:hover {
+          transform: scale(2.0);
+        }
+      }
 
       i+i {
         margin-left: 20px;

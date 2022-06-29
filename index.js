@@ -67,7 +67,7 @@ const customerItems = [
     email: "nguyenvanc@gmail.com",
   },
   {
-    img: "",
+    img: "https://cdn.tgdd.vn/Files/2022/02/21/1416573/bill-gates-la-ai_1280x860-800-resize.jpg",
     username: "Nguyễn Văn D",
     email: "nguyenvand@gmail.com",
   },
@@ -77,14 +77,14 @@ const customerItems = [
     email: "nguyenvane@gmail.com",
   },
   {
-    img: "https://us.123rf.com/450wm/warrengoldswain/warrengoldswain1107/warrengoldswain110700253/9967753-junger-mann-gesicht-eine-hohe-ausf%C3%BChrliches-portr%C3%A4t.jpg",
+    img: "https://kenh14cdn.com/2019/4/15/rose-bp-1555308347518704359300.jpg",
     username: "Nguyễn Văn F",
     email: "nguyenvanf@gmail.com",
   },
 
   {
-    img: "https://us.123rf.com/450wm/warrengoldswain/warrengoldswain1107/warrengoldswain110700253/9967753-junger-mann-gesicht-eine-hohe-ausf%C3%BChrliches-portr%C3%A4t.jpg",
-    username: "Nguyễn Văn F",
+    img: "https://vnn-imgs-a1.vgcloud.vn/photo-cms-tpo.zadn.vn/w645/Uploaded/2022/zaugtn/2022_03_18/lisa2-7289.jpeg",
+    username: "Nguyễn Văn Lía",
     email: "nguyenvanf@gmail.com",
   },
 
@@ -201,6 +201,8 @@ const myChart = new Chart(lineChart, {
       {
         label: "Doanh thu tháng 6",
         data: chartData,
+        fill: false,
+        tension: 0.5,
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",
@@ -210,7 +212,7 @@ const myChart = new Chart(lineChart, {
           "rgba(255, 159, 64, 0.2)",
         ],
         borderColor: "#0E9F6E",
-        borderWidth: 3,
+        borderWidth: 2,
       },
     ],
   },
