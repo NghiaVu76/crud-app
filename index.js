@@ -1,3 +1,13 @@
+import {
+  menuItems,
+  customerItems,
+  productItems,
+  chartLabels,
+  chartData,
+  tableData,
+  socialIcons,
+} from "./constants.js";
+
 const menuList = document.querySelector(".sidebar-items");
 const customerList = document.querySelector(
   ".dashboard-tactics-customers-content"
@@ -5,158 +15,6 @@ const customerList = document.querySelector(
 const productList = document.querySelector(
   ".dashboard-tactics-products-content"
 );
-
-const menuItems = [
-  {
-    class: "fas fa-database",
-    title: "Danh sách sản phẩm",
-  },
-  {
-    class: "fas fa-users",
-    title: "Khách hàng",
-  },
-  {
-    class: "fa-solid fa-cart-flatbed",
-    title: "Đơn hàng",
-  },
-  {
-    class: "fa-solid fa-cart-flatbed",
-    title: "Đơn hàng",
-  },
-  {
-    class: "fa-solid fa-cart-flatbed",
-    title: "Đơn hàng",
-  },
-  {
-    class: "fa-solid fa-cart-flatbed",
-    title: "Đơn hàng",
-  },
-
-  {
-    class: "fa-solid fa-cart-flatbed",
-    title: "Đơn hàng",
-  },
-  {
-    class: "fa-solid fa-cart-flatbed",
-    title: "Đơn hàng",
-  },
-  {
-    class: "fa-solid fa-cart-flatbed",
-    title: "Đơn hàng",
-  },
-  {
-    class: "fa-solid fa-cart-flatbed",
-    title: "Đơn hàng",
-  },
-];
-
-const customerItems = [
-  {
-    img: "https://kenh14cdn.com/2019/2/15/8-15502075818842118741287.jpg",
-    username: "Nguyễn Văn A",
-    email: "nguyenvana@gmail.com",
-  },
-  {
-    img: "https://kenh14cdn.com/2019/2/15/7-15502075818791603462215.jpg",
-    username: "Nguyễn Văn B",
-    email: "nguyenvanb@gmail.com",
-  },
-  {
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStagzptJQeek_NnbS3ECqsaMrZHPRqmuWqZXFV5eWpCjvxvNM2CVq0NsGQmdwejvO0wZQ&usqp=CAU",
-    username: "Nguyễn Văn C",
-    email: "nguyenvanc@gmail.com",
-  },
-  {
-    img: "https://cdn.tgdd.vn/Files/2022/02/21/1416573/bill-gates-la-ai_1280x860-800-resize.jpg",
-    username: "Nguyễn Văn D",
-    email: "nguyenvand@gmail.com",
-  },
-  {
-    img: "https://www.shashindo.de/wp-content/uploads/2020/05/20200421-MichaelSimonsen-8313-682x1024.jpg",
-    username: "Nguyễn Văn E",
-    email: "nguyenvane@gmail.com",
-  },
-  {
-    img: "https://kenh14cdn.com/2019/4/15/rose-bp-1555308347518704359300.jpg",
-    username: "Nguyễn Văn F",
-    email: "nguyenvanf@gmail.com",
-  },
-
-  {
-    img: "https://vnn-imgs-a1.vgcloud.vn/photo-cms-tpo.zadn.vn/w645/Uploaded/2022/zaugtn/2022_03_18/lisa2-7289.jpeg",
-    username: "Nguyễn Văn Lía",
-    email: "nguyenvanf@gmail.com",
-  },
-
-  {
-    img: "https://us.123rf.com/450wm/warrengoldswain/warrengoldswain1107/warrengoldswain110700253/9967753-junger-mann-gesicht-eine-hohe-ausf%C3%BChrliches-portr%C3%A4t.jpg",
-    username: "Nguyễn Văn F",
-    email: "nguyenvanf@gmail.com",
-  },
-
-  {
-    img: "https://us.123rf.com/450wm/warrengoldswain/warrengoldswain1107/warrengoldswain110700253/9967753-junger-mann-gesicht-eine-hohe-ausf%C3%BChrliches-portr%C3%A4t.jpg",
-    username: "Nguyễn Văn F",
-    email: "nguyenvanf@gmail.com",
-  },
-];
-
-const productItems = [
-  {
-    productName: "Bàn chơi game",
-    productId: "Mã SP: 0123456",
-    sales: 70,
-    class: "dashboard-tactics-products-content-item",
-  },
-  {
-    productName: "Ghế công thái học",
-    productId: "Mã SP: 0123456",
-    sales: 54,
-    class: "dashboard-tactics-products-content-item",
-  },
-  {
-    productName: "Bàn phím cơ",
-    productId: "Mã SP: 0123456",
-    sales: 47,
-    class: "dashboard-tactics-products-content-item",
-  },
-  {
-    productName: "Tay cầm chơi game",
-    productId: "Mã SP: 0123456",
-    sales: 43,
-    class: "dashboard-tactics-products-content-item",
-  },
-  {
-    productName: "Chuột gaming",
-    productId: "Mã SP: 0123456",
-    sales: 38,
-    class: "dashboard-tactics-products-content-item",
-  },
-  {
-    productName: "Tai nghe không dây",
-    productId: "Mã SP: 0123456",
-    sales: 22,
-    class: "dashboard-tactics-products-content-item",
-  },
-  {
-    productName: "Tay cầm chơi game",
-    productId: "Mã SP: 0123456",
-    sales: 20,
-    class: "dashboard-tactics-products-content-item",
-  },
-  {
-    productName: "Chuột gaming",
-    productId: "Mã SP: 0123456",
-    sales: 20,
-    class: "dashboard-tactics-products-content-item",
-  },
-  {
-    productName: "Bàn phím cơ",
-    productId: "Mã SP: 0123456",
-    sales: 17,
-    class: "dashboard-tactics-products-content-item",
-  },
-];
 
 //create sidebar menu
 const createMenuList = () => {
@@ -180,17 +38,6 @@ const createCustomerList = () => {
   });
 };
 
-const chartLabels = [
-  "01 June",
-  "02 June",
-  "03 June",
-  "04 June",
-  "05 June",
-  "06 June",
-  "07 June",
-];
-const chartData = [880, 1020, 790, 900, 850, 1170, 1250];
-
 //create chart
 const lineChart = document.getElementById("myChart");
 const myChart = new Chart(lineChart, {
@@ -199,7 +46,7 @@ const myChart = new Chart(lineChart, {
     labels: chartLabels,
     datasets: [
       {
-        label: "Doanh thu tháng 6",
+        label: "Sales",
         data: chartData,
         fill: false,
         tension: 0.5,
@@ -235,11 +82,37 @@ const myChart = new Chart(lineChart, {
             if (context.parsed.y !== null) {
               label += new Intl.NumberFormat("en-US", {
                 style: "currency",
-                currency: "USD",
+                currency: "VND",
               }).format(context.parsed.y);
             }
             return label;
           },
+          // title: function (context) {
+          //   let title = "Sales: ";
+
+          //   if (context.parsed.y !== null) {
+          //     title += `${context.parsed.y}k VND`;
+          //   }
+          //   return title;
+          // },
+        },
+        position: "average",
+        padding: "18.06px",
+        yAlign: "bottom",
+        backgroundColor: "#F9FAFB",
+        titleColor: "#4B5563",
+        titleFont: {
+          family: "Inter, sans-serif",
+          size: "12",
+          weight: "500",
+          lineHeight: "150%",
+        },
+        bodyColor: "#6B7280",
+        bodyFont: {
+          family: "Inter, sans-serif",
+          size: "16",
+          weight: "400",
+          lineHeight: "150%",
         },
       },
     },
@@ -263,84 +136,30 @@ const createProductList = () => {
 
 createProductList();
 
-const tableData = [
-  {
-    customerName: "Nguyễn Văn A",
-    time: "Jun 23, 2022",
-    totalPrice: "2.300.00 VNĐ",
-    status: "Hoàn thành",
-  },
-  {
-    customerName: "Nguyễn Văn B",
-    time: "Jun 23, 2022",
-    totalPrice: "2.300.00 VNĐ",
-    status: "Hoàn thành",
-  },
-  {
-    customerName: "Nguyễn Văn C",
-    time: "Jun 23, 2022",
-    totalPrice: "2.300.00 VNĐ",
-    status: "Đã hủy",
-  },
-  {
-    customerName: "Nguyễn Văn E",
-    time: "Jun 23, 2022",
-    totalPrice: "2.300.00 VNĐ",
-    status: "Đang giao",
-  },
-  {
-    customerName: "Nguyễn Văn F",
-    time: "Jun 23, 2022",
-    totalPrice: "2.300.00 VNĐ",
-    status: "Đã hủy",
-  },
-  {
-    customerName: "Nguyễn Văn G",
-    time: "Jun 23, 2022",
-    totalPrice: "2.300.00 VNĐ",
-    status: "Đang giao",
-  },
-  {
-    customerName: "Nguyễn Văn A",
-    time: "Jun 23, 2022",
-    totalPrice: "2.300.00 VNĐ",
-    status: "Hoàn thành",
-  },
-  {
-    customerName: "Nguyễn Văn A",
-    time: "Jun 23, 2022",
-    totalPrice: "2.300.00 VNĐ",
-    status: "Hoàn thành",
-  },
-];
-
+//create table
 const tBody = tableData
-  .map(function (value) {
-    return `<tr>
-            <td>${value.customerName}</td>
-            <td>${value.time}</td>
-            <td>${value.totalPrice}</td>
-            <td>${value.status}</td>
-        </tr>`;
+  .map(function (item, index) {
+    if (index % 2 == 1) {
+      return `<tr class="even-row">
+      <td>${item.customerName}</td>
+      <td class="time-column">${item.time}</td>
+      <td>${item.totalPrice}</td>
+      <td><div class="${item.statusClass}">${item.status}</div></td>
+      </tr>`;
+    } else if (index % 2 == 0) {
+      return `<tr>
+      <td>${item.customerName}</td>
+      <td class="time-column">${item.time}</td>
+      <td>${item.totalPrice}</td>
+      <td><div class="${item.statusClass}">${item.status}</div></td>
+      </tr>`;
+    }
   })
   .join("");
 const tabelBody = document.querySelector("#tableBody");
 tableBody.innerHTML = tBody;
 
-const socialIcons = [
-  {
-    class: "fa-brands fa-facebook-f",
-  },
-  {
-    class: "fa-brands fa-twitter",
-  },
-  {
-    class: "fa-brands fa-instagram",
-  },
-  {
-    class: "fa-brands fa-weibo",
-  },
-];
+//create social link icons
 const socialLink = document.querySelector(".dashboard-footer-group");
 const createSocialLink = () => {
   socialIcons.forEach((item) => {
