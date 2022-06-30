@@ -2,7 +2,8 @@
     width: 84.375%;
     padding: 16px;
     overflow-y: overlay;
-    height: 613px;
+    height: 532px;
+    background-color: var(--cool-gray-050);
 
     @include mobile {
         width: 100%;
@@ -38,6 +39,7 @@
         border-radius: 16px;
         width: 100%;
         height: 570.85px;
+        background-color: #fff;
 
         &-container {
             display: flex;
@@ -67,12 +69,16 @@
 
             #myChart {
                 width: 100%;
+                height: 100%;
                 max-width: 1285px;
                 max-height: 430px;
                 min-height: 430px;
-                height: 100%;
                 padding: 0 32px;
                 cursor: pointer;
+
+                @include mobile {
+                    padding: 0 8px;
+                }
             }
         }
     }
@@ -82,6 +88,7 @@
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
+        background-color: var(--cool-gray-050);
 
         @include mobile {
             flex-direction: column;
@@ -101,6 +108,7 @@
             border-radius: 16px;
             padding: 16px;
             cursor: pointer;
+            background-color: #fff;
 
             @include mobile {
                 width: 100%;
@@ -192,6 +200,7 @@
             border-radius: 16px;
             padding: 16px;
             cursor: pointer;
+            background-color: #fff;
 
             @include mobile {
                 width: 100%;
@@ -282,6 +291,7 @@
         height: 473px;
         box-shadow: var(--box-shadow);
         border-radius: 16px;
+        background-color: #fff;
         cursor: pointer;
 
         &-container {
@@ -436,6 +446,7 @@
         height: 120px;
         box-shadow: var(--box-shadow);
         border-radius: 16px;
+        background-color: #fff;
 
         @include mobile {
             height: 176px;

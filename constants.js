@@ -11,35 +11,6 @@ const menuItems = [
     class: "fa-solid fa-cart-flatbed",
     title: "Đơn hàng",
   },
-  {
-    class: "fa-solid fa-cart-flatbed",
-    title: "Đơn hàng",
-  },
-  {
-    class: "fa-solid fa-cart-flatbed",
-    title: "Đơn hàng",
-  },
-  {
-    class: "fa-solid fa-cart-flatbed",
-    title: "Đơn hàng",
-  },
-
-  {
-    class: "fa-solid fa-cart-flatbed",
-    title: "Đơn hàng",
-  },
-  {
-    class: "fa-solid fa-cart-flatbed",
-    title: "Đơn hàng",
-  },
-  {
-    class: "fa-solid fa-cart-flatbed",
-    title: "Đơn hàng",
-  },
-  {
-    class: "fa-solid fa-cart-flatbed",
-    title: "Đơn hàng",
-  },
 ];
 
 const customerItems = [
