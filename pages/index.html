@@ -1,0 +1,55 @@
+<div class="dashboard-chart">
+  <div class="dashboard-chart-container">
+    <div class="dashboard-chart-header">
+      <h1>Doanh thu</h1>
+    </div>
+    <div class="dashboard-chart-content">
+      <canvas id="myChart"></canvas>
+      <div class="dashboard-chart-content-tooltip"></div>
+    </div>
+  </div>
+</div>
+<div class="dashboard-tactics">
+  <div class="dashboard-tactics-customers">
+    <div class="dashboard-tactics-customers-header">
+      <h1>Khách hàng mới</h1>
+    </div>
+    <div class="dashboard-tactics-customers-content"></div>
+  </div>
+  <div class="dashboard-tactics-products">
+    <div class="dashboard-tactics-products-header">
+      <h1>Sản phẩm bán chạy</h1>
+    </div>
+    <div class="dashboard-tactics-products-content"></div>
+  </div>
+</div>
+<div class="dashboard-table">
+  <div class="dashboard-table-container">
+    <div class="dashboard-table-header">
+      <h1>Đơn hàng gần nhất</h1>
+      <h2>Danh sách 6 đơn hàng gần nhất</h2>
+    </div>
+    <div class="dashboard-table-content">
+      <table border="1">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" style="width: 269px">KHÁCH HÀNG</th>
+            <th scope="col" style="width: 357px">THỜI GIAN</th>
+            <th scope="col" style="width: 405px">THÀNH TIỀN</th>
+            <th scope="col" style="width: 254px">TRẠNG THÁI</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="dashboard-footer">
+  <div class="dashboard-footer-content">
+    <div class="dashboard-footer-title">
+      © 2022 VnSolution. All rights reserved.
+    </div>
+    <div class="dashboard-footer-group"></div>
+  </div>
+</div>
+<script src="../js/dashboard/index.js"></script>

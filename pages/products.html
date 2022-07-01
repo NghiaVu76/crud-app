@@ -1,0 +1,66 @@
+<div class="dashboard-products-list">
+  <div class="dashboard-products-list-container">
+    <div class="dashboard-products-list-header">
+      <h1>Danh sách sản phẩm</h1>
+      <div class="dashboard-products-list-content">
+        <div class="dashboard-products-list-content-header">
+          <div class="dashboard-products-list-content-header-searchbox">
+            <input type="text" class="" placeholder="Tìm kiếm..." />
+            <button><i class="fa fa-search"></i></button>
+          </div>
+          <div class="dashboard-products-list-content-header-actions">
+            <button id="addbtn">Thêm mới</button>
+            <button id="filterHideBtn">Ẩn bộ lọc</button>
+          </div>
+        </div>
+        <div class="dashboard-products-list-content-filter">
+          <div class="dashboard-products-list-content-filter-grid">
+            <input type="text" placeholder="Sản phẩm" />
+            <input type="number" min="0" placeholder="Số lượng" />
+            <input
+              type="text"
+              placeholder="Loại sản phẩm"
+              list="product_type"
+            />
+            <datalist id="product_type">
+              <option value="Ghế 11423r345"></option>
+              <option value="Ghế 11423r345"></option>
+              <option value="Ghế 11423r3sgergccfv45"></option>
+              <option value="Ghế 11423r345"></option>
+            </datalist>
+            <input type="text" placeholder="Trạng thái" list="status" />
+            <datalist id="status">
+              <option value="Đã qua sử dụng"></option>
+              <option value="Hàng cũ"></option>
+              <option value="Ghế 11423r3sgergccfv45"></option>
+              <option value="Ghế 11423r345"></option>
+            </datalist>
+          </div>
+        </div>
+        <div class="dashboard-products-list-content-table">
+          <table border="1">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col" style="width: 269px">KHÁCH HÀNG</th>
+                <th scope="col" style="width: 357px">THỜI GIAN</th>
+                <th scope="col" style="width: 405px">THÀNH TIỀN</th>
+                <th scope="col" style="width: 254px">TRẠNG THÁI</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+        <div class="dashboard-products-list-content-footer"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-footer">
+  <div class="dashboard-footer-content">
+    <div class="dashboard-footer-title">
+      © 2022 VnSolution. All rights reserved.
+    </div>
+    <div class="dashboard-footer-group"></div>
+  </div>
+</div>

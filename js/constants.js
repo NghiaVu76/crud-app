@@ -2,14 +2,17 @@ const menuItems = [
   {
     class: "fas fa-database",
     title: "Danh sách sản phẩm",
+    path: "/products",
   },
   {
     class: "fas fa-users",
     title: "Khách hàng",
+    path: "/customers",
   },
   {
     class: "fa-solid fa-cart-flatbed",
     title: "Đơn hàng",
+    path: "/carts",
   },
 ];
 

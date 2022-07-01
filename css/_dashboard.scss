@@ -2,7 +2,7 @@
     width: 84.375%;
     padding: 16px;
     overflow-y: overlay;
-    height: 532px;
+    height: 613px;
     background-color: var(--cool-gray-050);
 
     @include mobile {
@@ -436,6 +436,253 @@
             }
         }
     }
+
+    //productslist pages
+    &-products-list {
+        width: 100%;
+        height: 800px;
+        box-shadow: var(--box-shadow);
+        border-radius: 16px;
+        background-color: #fff;
+
+        &-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            height: 800px;
+
+        }
+
+        &-header {
+            margin: 16px;
+            width: 100%;
+            height: 60px;
+
+            h1 {
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 150%;
+                color: var(--cool-gray-900);
+            }
+        }
+
+        &-content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            &-header {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                width: calc(100% - 32px);
+                height: 60px;
+
+                &-searchbox {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    width: 367px;
+                    height: 40px;
+                    padding-left: 1px;
+                    border: 1px solid var(--cool-gray-300);
+                    border-radius: 4px;
+
+                    input {
+                        display: flex;
+                        align-items: center;
+                        width: calc(100% - 45px);
+                        height: 35px;
+                        border: none;
+                        padding: 8px 0 8px 12px;
+                        font-family: 'Tahoma';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 13px;
+                        line-height: 24px;
+                        color: var(--cool-gray-600);
+
+                    }
+
+                    button {
+                        height: 36px;
+                        border: none;
+                        background-color: #fff;
+                        padding: 0;
+                        padding: 0 15px 0 11px;
+
+                        i {
+                            font-size: 1.4rem;
+                        }
+                    }
+                }
+
+                &-actions {
+                    display: flex;
+                    flex-direction: row;
+                    height: calc(100% - 20px);
+
+                    button {
+                        height: 100%;
+                        border-radius: 8px;
+                        border: none;
+                        padding: 0;
+                    }
+
+                    #addbtn {
+                        width: 102px;
+                        background-color: var(--blue-600);
+                        color: #fff;
+                    }
+
+                    #filterHideBtn {
+                        width: 98px;
+                        background-color: #fff;
+                        color: var(--blue-600);
+                    }
+                }
+            }
+
+            &-filter {
+                width: calc(100% - 32px);
+                height: 200px;
+                padding: 32px 24px;
+
+                &-grid {
+                    display: grid;
+                    grid-template-columns: calc((100% - 16px) / 2) calc((100% - 16px) / 2);
+                    justify-content: space-between;
+                    gap: 24px 16px;
+
+                    input {
+                        height: 56px;
+                        border: 1px solid var(--cool-gray-300);
+                        border-radius: 8px;
+                        padding: 12px;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 24px;
+                        color: var(--cool-gray-500);
+                    }
+                }
+            }
+
+            &-table {
+                width: calc(100% - 32px);
+                height: 591px;
+
+                table {
+                    width: 100%;
+                    max-height: 370px;
+                    border-radius: 12px;
+                    border: none;
+                    padding: 2px;
+                    box-sizing: border-box;
+                    box-shadow: var(--box-shadow);
+                    overflow-y: overlay;
+
+                    @include mobile {
+                        width: 200%;
+                        overflow-x: auto;
+                    }
+
+                    thead {
+                        width: 100%;
+                        height: 50px;
+                        text-align: left;
+                        background-color: var(--cool-gray-050);
+
+                        th {
+                            border: none;
+                            font-weight: 600;
+                            font-size: 12px;
+                            line-height: 150%;
+                            color: var(--cool-gray-500);
+
+                            padding: 16px;
+                        }
+                    }
+
+                    tbody {
+                        width: 100%;
+                        border: none;
+
+                        tr.even-row {
+                            background-color: var(--cool-gray-050);
+                        }
+
+                        td {
+                            margin-left: 16px;
+                            border: none;
+                            height: 54px;
+                            font-weight: 600;
+                            font-size: 14px;
+                            line-height: 150%;
+                            text-align: left;
+                            padding: 16px;
+                            color: var(--cool-gray-900);
+                            transition: all 0.5s ease;
+
+                            &:hover {
+                                transform: scale(1.0);
+                                box-shadow: var(--box-shadow);
+                            }
+
+                            // custome time column
+                            &.time-column {
+                                font-weight: 400;
+                                font-size: 14px;
+                                line-height: 20px;
+                                color: var(--cool-gray-500);
+                            }
+
+                            div {
+                                display: inline;
+                                border-radius: 10px;
+                                padding: 2px 10px;
+                            }
+
+                            // done status
+                            .done {
+                                background-color: var(--green-100);
+                                font-weight: 400;
+                                font-size: 12px;
+                                line-height: 150%;
+                                text-align: center;
+                                color: var(--green-800);
+                            }
+
+                            // cancelled status
+                            .canceled {
+                                background-color: var(--red-200);
+                                font-weight: 400;
+                                font-size: 12px;
+                                line-height: 150%;
+                                text-align: center;
+                                color: var(--red-800);
+                            }
+
+                            //pendings status
+                            .pending {
+                                background-color: var(--blue-100);
+                                font-weight: 400;
+                                font-size: 12px;
+                                line-height: 150%;
+                                text-align: center;
+                                color: var(--blue-800);
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+
+    }
+
 
     &-footer {
         display: flex;

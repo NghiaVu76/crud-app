@@ -19,11 +19,11 @@ const productList = document.querySelector(
 //create sidebar menu
 const createMenuList = () => {
   menuItems.forEach((item) => {
-    menuList.innerHTML += `<button><i class="${item.class}"></i><p>${item.title}</p></button>`;
+    menuList.innerHTML += `<a href="${item.path}" onclick="route()"><button><i class="${item.class}"></i><p>${item.title}</p></button></a>`;
   });
 };
 
-createMenuList();
+// createMenuList();
 
 //create new customer list
 const createCustomerList = () => {
@@ -33,11 +33,12 @@ const createCustomerList = () => {
           <div>
               <h1>${item.username}</h1>
               <h2>${item.email}</h2>
-          </div>
-          </div>`;
+              </div>
+              </div>`;
   });
 };
 
+createCustomerList();
 //create chart
 const lineChart = document.getElementById("myChart");
 const myChart = new Chart(lineChart, {
@@ -119,8 +120,6 @@ const myChart = new Chart(lineChart, {
   },
 });
 
-createCustomerList();
-
 //create best-selling products list
 const createProductList = () => {
   productItems.forEach((item) => {
@@ -156,7 +155,7 @@ const tBody = tableData
     }
   })
   .join("");
-const tabelBody = document.querySelector("#tableBody");
+const tabelBody = document.getElementById("tableBody");
 tableBody.innerHTML = tBody;
 
 //create social link icons
@@ -168,3 +167,32 @@ const createSocialLink = () => {
 };
 
 createSocialLink();
+
+// // route
+// const route = (event) => {
+//   event = event || window.event;
+//   event.preventDefault();
+//   window.history.pushState({}, "", event.target.href);
+//   handleLocation();
+// };
+
+// const routes = {
+//   "/": "/pages/index.html",
+//   "/products": "/pages/products.html",
+//   "/customers": "pages/customers.html",
+//   "/carts": "/pages/carts.html",
+// };
+
+// const handleLocation = async () => {
+//   const path = window.location.pathname;
+//   const route = routes[path] || routes[404];
+//   console.log(route);
+//   const html = await fetch(route).then((data) => data.text());
+//   console.log(html);
+//   document.getElementById("main-page").innerHTML = html;
+// };
+
+// window.onpopstate = handleLocation;
+// window.route = route;
+
+// handleLocation();
