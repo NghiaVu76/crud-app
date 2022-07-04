@@ -6,7 +6,7 @@ const route = (event) => {
 };
 
 const routes = {
-  "/": "/pages/products.html",
+  "/": "pages/products.html",
   "/products": "/pages/products.html",
   "/customers": "/pages/customers.html",
   "/carts": "/pages/carts.html",
@@ -17,7 +17,6 @@ const handleLocation = async () => {
   console.log(path);
   const route = routes[path];
   const html = await fetch(route).then((data) => data.text());
-  console.log(html);
   document.getElementById("main-page").innerHTML = html;
 };
 
