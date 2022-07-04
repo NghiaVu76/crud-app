@@ -38,7 +38,7 @@
           </div>
         </div>
         <div class="dashboard-products-list-content-table">
-          <table border="1">
+          <table border="1" id="product-table">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">SẢN PHẨM</th>
@@ -53,7 +53,18 @@
             <tbody id="productTableBody"></tbody>
           </table>
         </div>
-        <div class="dashboard-products-list-content-footer"></div>
+        <div class="dashboard-products-list-content-footer">
+          <label for="items-quantity">Số bản ghi</label>
+          <select id="items-quantity" onchange="getItemsPerPage()">
+            <option value="5">5</option>
+            <option value="6" selected>6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          <div id="table-pagination"></div>
+        </div>
       </div>
     </div>
   </div>
