@@ -158,7 +158,7 @@ const tabelBody = document.getElementById("tableBody");
 tableBody.innerHTML = tBody;
 
 //create social link icons
-const socialLink = document.querySelectorAll(".dashboard-footer-group");
+const socialLink = document.querySelector(".dashboard-footer-group");
 const createSocialLink = () => {
   socialIcons.forEach((item) => {
     socialLink.innerHTML += `<i class="${item.class}"></i>`;

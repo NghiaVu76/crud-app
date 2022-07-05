@@ -751,7 +751,7 @@ html *::-webkit-scrollbar-track {
 }
 .dashboard-products-list {
   width: 100%;
-  height: 1200px;
+  height: auto;
   box-shadow: var(--box-shadow);
   border-radius: 16px;
   background-color: #fff;
@@ -761,11 +761,11 @@ html *::-webkit-scrollbar-track {
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 .dashboard-products-list-header {
-  margin: 16px;
-  width: 100%;
+  margin: 16px 16px 0;
+  width: calc(100% - 32px);
   height: 60px;
 }
 .dashboard-products-list-header h1 {
@@ -777,14 +777,16 @@ html *::-webkit-scrollbar-track {
 .dashboard-products-list-content {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: calc(100% - 32px);
+  height: auto;
+  margin: 16px;
 }
 .dashboard-products-list-content-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: calc(100% - 32px);
+  width: 100%;
   height: 60px;
 }
 .dashboard-products-list-content-header-searchbox {
@@ -845,7 +847,7 @@ html *::-webkit-scrollbar-track {
   color: var(--blue-600);
 }
 .dashboard-products-list-content-filter {
-  width: calc(100% - 32px);
+  width: 100%;
   height: 200px;
   padding: 32px 24px;
 }
@@ -866,15 +868,15 @@ html *::-webkit-scrollbar-track {
   color: var(--cool-gray-500);
 }
 .dashboard-products-list-content-table {
-  width: calc(100% - 32px);
-  height: 591px;
+  width: 100%;
+  height: auto;
 }
 .dashboard-products-list-content-table table {
   width: 100%;
+  height: auto;
   max-height: 100%;
   border-radius: 12px;
   border: none;
-  padding: 2px;
   box-sizing: border-box;
   box-shadow: var(--box-shadow);
 }
@@ -965,11 +967,32 @@ html *::-webkit-scrollbar-track {
 .dashboard-products-list-content-footer {
   display: flex;
   flex-direction: row;
+  height: 56px;
+  padding: 18px;
+  justify-content: flex-end;
   color: var(--cool-gray-500);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 166%;
+}
+.dashboard-products-list-content-footer select {
+  margin-left: 8px;
 }
 .dashboard-products-list-content-footer select option {
   color: var(--cool-gray-900);
   background-color: white;
+}
+.dashboard-products-list-content-footer #table-pagination {
+  display: flex;
+  flex-direction: row;
+  margin-left: 33px;
+  color: var(--cool-gray-900);
+}
+.dashboard-products-list-content-footer #table-pagination button {
+  margin-left: 42px;
+  border: none;
+  background: none;
+  color: var(--cool-gray-500);
 }
 .dashboard-footer {
   display: flex;

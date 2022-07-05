@@ -1,4 +1,4 @@
-import { productsList } from "../constants.js";
+import { productsList, socialIcons } from "../constants.js";
 
 console.log(productsList);
 
@@ -36,93 +36,87 @@ const productsTable = productsList
 document.getElementById("productTableBody").innerHTML = productsTable;
 
 //table pagination
-function Pager(tableName, itemsPerPage) {
-  this.tableName = tableName;
-  this.itemsPerPage = itemsPerPage;
-  this.currentPage = 1;
-  this.pages = 0;
-  this.inited = false;
+//start
+var currentPage;
+var pages = 0;
+var inited = false;
 
-  this.showRecords = function (from, to) {
-    var rows = document.getElementById(tableName).rows;
-    // i starts from 1 to skip table header row
-    for (var i = 1; i < rows.length; i++) {
-      if (i < from || i > to) rows[i].style.display = "none";
-      else rows[i].style.display = "";
-    }
-  };
+const showRecords = function (tableName, from, to) {
+  var rows = document.getElementById(tableName).rows;
+  // i starts from 1 to skip table header row
+  for (var i = 1; i < rows.length; i++) {
+    if (i < from || i > to) rows[i].style.display = "none";
+    else rows[i].style.display = "";
+  }
+};
 
-  this.showPage = function (pageNumber) {
-    if (!this.inited) {
-      alert("not inited");
-      return;
-    }
+const showPage = function (tableName, pageNumber, itemsPerPage) {
+  if (!inited) {
+    alert("not inited");
+    return;
+  }
 
-    var oldPageAnchor = document.getElementById("pg" + this.currentPage);
-    oldPageAnchor.className = "pg-normal";
+  currentPage = pageNumber;
 
-    this.currentPage = pageNumber;
-    var newPageAnchor = document.getElementById("pg" + this.currentPage);
-    newPageAnchor.className = "pg-selected";
+  var from = (pageNumber - 1) * itemsPerPage + 1;
+  var to = from + itemsPerPage - 1;
+  showRecords(tableName, from, to);
 
-    var from = (pageNumber - 1) * itemsPerPage + 1;
-    var to = from + itemsPerPage - 1;
-    this.showRecords(from, to);
-  };
+  var rows = document.getElementById(tableName).rows;
 
-  this.prev = function () {
-    if (this.currentPage > 1) this.showPage(this.currentPage - 1);
-  };
+  if (to > rows.length - 1) to = rows.length - 1;
 
-  this.next = function () {
-    if (this.currentPage < this.pages) {
-      this.showPage(this.currentPage + 1);
-    }
-  };
+  document.getElementById(
+    "pagination-info"
+  ).innerHTML = `<span>${from} - ${to} of ${rows.length - 1}</span>`;
+};
 
-  this.init = function () {
-    var rows = document.getElementById(tableName).rows;
-    var records = rows.length - 1;
-    this.pages = Math.ceil(records / itemsPerPage);
-    this.inited = true;
-  };
+const init = (tableName, itemsPerPage) => {
+  var rows = document.getElementById(tableName).rows;
+  var records = rows.length - 1;
+  pages = Math.ceil(records / itemsPerPage);
+  inited = true;
+};
 
-  this.showPageNav = function (pagerName, positionId) {
-    if (!this.inited) {
-      alert("not inited");
-      return;
-    }
-    var element = document.getElementById(positionId);
-
-    var pagerHtml =
-      '<span onclick="' +
-      pagerName +
-      '.prev();" class="pg-normal"> &#171 Prev </span> | ';
-    for (var page = 1; page <= this.pages; page++)
-      pagerHtml +=
-        '<span id="pg' +
-        page +
-        '" class="pg-normal" onclick="' +
-        pagerName +
-        ".showPage(" +
-        page +
-        ');">' +
-        page +
-        "</span> | ";
-    pagerHtml +=
-      '<span onclick="' +
-      pagerName +
-      '.next();" class="pg-normal"> Next &#187;</span>';
-
-    element.innerHTML = pagerHtml;
-  };
-}
-
+var tableName = "product-table";
+var pageNumber = 1;
 var itemsPerPage = parseInt(document.getElementById("items-quantity").value);
 
-console.log(itemsPerPage);
+//add event 'click' for prevBtn
+function prevButtonClick() {
+  if (currentPage > 1) showPage(tableName, currentPage - 1, itemsPerPage);
+}
+document.getElementById("prevBtn").addEventListener("click", prevButtonClick);
 
-var pager = new Pager("product-table", itemsPerPage);
-pager.init();
-pager.showPageNav("pager", "table-pagination");
-pager.showPage(2);
+//add event 'click' for nextBtn
+function nextButtonClick() {
+  if (currentPage < pages) showPage(tableName, currentPage + 1, itemsPerPage);
+}
+document.getElementById("nextBtn").addEventListener("click", nextButtonClick);
+
+// get items per page = select value
+function getItemsPerPage() {
+  itemsPerPage = parseInt(document.getElementById("items-quantity").value);
+  console.log(itemsPerPage);
+  init(tableName, itemsPerPage);
+  showPage(tableName, pageNumber, itemsPerPage);
+}
+
+// update itemsPerPage when select-tag's value change
+document
+  .getElementById("items-quantity")
+  .addEventListener("change", getItemsPerPage);
+
+// init the pagination and show page
+init(tableName, itemsPerPage);
+showPage(tableName, pageNumber, itemsPerPage);
+
+//create social link icons
+const socialLink = document.querySelector(".dashboard-footer-group");
+const createSocialLink = () => {
+  socialIcons.forEach((item) => {
+    socialLink.innerHTML += `<i class="${item.class}"></i>`;
+  });
+};
+
+createSocialLink();

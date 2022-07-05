@@ -2,68 +2,72 @@
   <div class="dashboard-products-list-container">
     <div class="dashboard-products-list-header">
       <h1>Danh sách sản phẩm</h1>
-      <div class="dashboard-products-list-content">
-        <div class="dashboard-products-list-content-header">
-          <div class="dashboard-products-list-content-header-searchbox">
-            <input type="text" class="" placeholder="Tìm kiếm..." />
-            <button><i class="fa fa-search"></i></button>
-          </div>
-          <div class="dashboard-products-list-content-header-actions">
-            <button id="addbtn">Thêm mới</button>
-            <button id="filterHideBtn">Ẩn bộ lọc</button>
-          </div>
+    </div>
+    <div class="dashboard-products-list-content">
+      <div class="dashboard-products-list-content-header">
+        <div class="dashboard-products-list-content-header-searchbox">
+          <input type="text" class="" placeholder="Tìm kiếm..." />
+          <button><i class="fa fa-search"></i></button>
         </div>
-        <div class="dashboard-products-list-content-filter">
-          <div class="dashboard-products-list-content-filter-grid">
-            <input type="text" placeholder="Sản phẩm" />
-            <input type="number" min="0" placeholder="Số lượng" />
-            <input
-              type="text"
-              placeholder="Loại sản phẩm"
-              list="product_type"
-            />
-            <datalist id="product_type">
-              <option value="Ghế 11423r345"></option>
-              <option value="Ghế 11423r345"></option>
-              <option value="Ghế 11423r3sgergccfv45"></option>
-              <option value="Ghế 11423r345"></option>
-            </datalist>
-            <input type="text" placeholder="Trạng thái" list="status" />
-            <datalist id="status">
-              <option value="Đã qua sử dụng"></option>
-              <option value="Hàng cũ"></option>
-              <option value="Ghế 11423r3sgergccfv45"></option>
-              <option value="Ghế 11423r345"></option>
-            </datalist>
-          </div>
+        <div class="dashboard-products-list-content-header-actions">
+          <button id="addbtn">Thêm mới</button>
+          <button id="filterHideBtn">Ẩn bộ lọc</button>
         </div>
-        <div class="dashboard-products-list-content-table">
-          <table border="1" id="product-table">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">SẢN PHẨM</th>
-                <th scope="col">LOẠI</th>
-                <th scope="col">NGÀY TẠO SẢN PHẨM</th>
-                <th scope="col">SỐ LƯỢNG</th>
-                <th scope="col">GIÁ BÁN</th>
-                <th scope="col">TRẠNG THÁI</th>
-                <th scope="col">CHỨC NĂNG</th>
-              </tr>
-            </thead>
-            <tbody id="productTableBody"></tbody>
-          </table>
+      </div>
+      <div class="dashboard-products-list-content-filter">
+        <div class="dashboard-products-list-content-filter-grid">
+          <input type="text" placeholder="Sản phẩm" />
+          <input type="number" min="0" placeholder="Số lượng" />
+          <input type="text" placeholder="Loại sản phẩm" list="product_type" />
+          <datalist id="product_type">
+            <option value="Ghế 11423r345"></option>
+            <option value="Ghế 11423r345"></option>
+            <option value="Ghế 11423r3sgergccfv45"></option>
+            <option value="Ghế 11423r345"></option>
+          </datalist>
+          <input type="text" placeholder="Trạng thái" list="status" />
+          <datalist id="status">
+            <option value="Đã qua sử dụng"></option>
+            <option value="Hàng cũ"></option>
+            <option value="Ghế 11423r3sgergccfv45"></option>
+            <option value="Ghế 11423r345"></option>
+          </datalist>
         </div>
-        <div class="dashboard-products-list-content-footer">
-          <label for="items-quantity">Số bản ghi</label>
-          <select id="items-quantity" onchange="getItemsPerPage()">
-            <option value="5">5</option>
-            <option value="6" selected>6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
-          <div id="table-pagination"></div>
+      </div>
+      <div class="dashboard-products-list-content-table">
+        <table border="1" id="product-table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">SẢN PHẨM</th>
+              <th scope="col">LOẠI</th>
+              <th scope="col">NGÀY TẠO SẢN PHẨM</th>
+              <th scope="col">SỐ LƯỢNG</th>
+              <th scope="col">GIÁ BÁN</th>
+              <th scope="col">TRẠNG THÁI</th>
+              <th scope="col">CHỨC NĂNG</th>
+            </tr>
+          </thead>
+          <tbody id="productTableBody"></tbody>
+        </table>
+      </div>
+      <div class="dashboard-products-list-content-footer">
+        <label for="items-quantity">Số bản ghi</label>
+        <select id="items-quantity">
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10" selected>10</option>
+        </select>
+        <div id="table-pagination">
+          <div id="pagination-info"></div>
+          <button id="prevBtn">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+          <button id="nextBtn">
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
         </div>
       </div>
     </div>

@@ -254,7 +254,7 @@ const productsList = [
     quantity: 0,
     price: 2300000,
     status: "Hết hàng",
-    statusClass: "stocking",
+    statusClass: "out-of-stock",
   },
   {
     productName: "Tai nghe không dây",
