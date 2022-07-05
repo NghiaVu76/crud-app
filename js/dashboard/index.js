@@ -6,7 +6,7 @@ import {
   chartData,
   tableData,
   socialIcons,
-} from "./constants.js";
+} from "../constants.js";
 
 const customerList = document.querySelector(
   ".dashboard-tactics-customers-content"
@@ -14,15 +14,6 @@ const customerList = document.querySelector(
 const productList = document.querySelector(
   ".dashboard-tactics-products-content"
 );
-
-//create sidebar menu
-const createMenuList = () => {
-  menuItems.forEach((item) => {
-    menuList.innerHTML += `<a href="${item.path}" onclick="route()"><button><i class="${item.class}"></i><p>${item.title}</p></button></a>`;
-  });
-};
-
-createMenuList();
 
 //create new customer list
 const createCustomerList = () => {

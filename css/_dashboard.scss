@@ -485,6 +485,7 @@
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
+                    align-items: center;
                     width: 367px;
                     height: 40px;
                     padding-left: 1px;
@@ -508,7 +509,7 @@
                     }
 
                     button {
-                        height: 36px;
+                        height: 35px;
                         border: none;
                         background-color: #fff;
                         padding: 0;

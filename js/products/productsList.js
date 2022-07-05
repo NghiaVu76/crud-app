@@ -1,11 +1,9 @@
 import { productsList, socialIcons } from "../constants.js";
 
-console.log(productsList);
-
 const productsTable = productsList
   .map(function (item, index) {
     if (index % 2 == 1) {
-      return `<tr class="even-row">
+      return `<tr class="even-row" id="product-row">
       <td>${item.productName}</td>
       <td>${item.category}</td>
       <td class="time-column">${item.createdAt}</td>
@@ -18,7 +16,7 @@ const productsTable = productsList
       </td>
       </tr>`;
     } else if (index % 2 == 0) {
-      return `<tr>
+      return `<tr id="product-row">
       <td>${item.productName}</td>
       <td>${item.category}</td>
       <td class="time-column">${item.createdAt}</td>
@@ -35,7 +33,63 @@ const productsTable = productsList
   .join("");
 document.getElementById("productTableBody").innerHTML = productsTable;
 
-//table pagination
+//product category
+var categoryArr = [];
+productsList.map((item, index) => {
+  categoryArr.push(item.category);
+});
+
+// delete the categories that duplicated
+let newCategoryArr = categoryArr.reduce((acc, category) => {
+  if (acc.indexOf(category) === -1) {
+    acc.push(category);
+  }
+  return acc;
+}, []);
+
+// render category list <select>
+var productCategory = document.getElementById("product_category");
+for (let i = 0; i < newCategoryArr.length - 1; i++) {
+  productCategory.innerHTML += `<option value="${newCategoryArr[i]}">${newCategoryArr[i]}</option>`;
+}
+
+//////FILTER PRODUCTS
+var name_input = document.getElementById("name-input");
+
+function productFilter() {
+  var nameInput, tbody, tr, td;
+  nameInput = name_input.value.toUpperCase();
+  console.log(nameInput);
+  tbody = document.getElementById("productTableBody");
+  tr = document.getElementById("product-row");
+
+  if (!nameInput) {
+    tbody.style.display = "none";
+  } else {
+    for (let i = 0; i < productsList.length - 1; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      console.log(td);
+      if (td.innerHTML.toUpperCase().indexOf(nameInput) > -1) {
+        tbody.style.display = "block";
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+
+name_input.addEventListener("keyup", productFilter);
+
+var quantityInput = document
+  .getElementById("quantity-input")
+  .value.toUpperCase();
+var categoryInput = document
+  .getElementById("category-input")
+  .value.toUpperCase();
+var statusInput = document.getElementById("status-input").value.toUpperCase();
+
+//////TABLE PAGINATION
 //start
 var currentPage;
 var pages = 0;

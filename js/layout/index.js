@@ -1,21 +1,6 @@
-import {
-  menuItems,
-  customerItems,
-  productItems,
-  chartLabels,
-  chartData,
-  tableData,
-  socialIcons,
-  productsList,
-} from "../constants.js";
+import { menuItems } from "../constants.js";
 
 const menuList = document.querySelector(".sidebar-items");
-const customerList = document.querySelector(
-  ".dashboard-tactics-customers-content"
-);
-const productList = document.querySelector(
-  ".dashboard-tactics-products-content"
-);
 
 //create sidebar menu
 const createMenuList = () => {

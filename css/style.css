@@ -793,6 +793,7 @@ html *::-webkit-scrollbar-track {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   width: 367px;
   height: 40px;
   padding-left: 1px;
@@ -814,7 +815,7 @@ html *::-webkit-scrollbar-track {
   color: var(--cool-gray-600);
 }
 .dashboard-products-list-content-header-searchbox button {
-  height: 36px;
+  height: 35px;
   border: none;
   background-color: #fff;
   padding: 0;
