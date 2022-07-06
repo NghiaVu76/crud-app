@@ -1,0 +1,54 @@
+<div class="dashboard-update-products">
+  <div class="dashboard-update-products-container">
+    <div class="dashboard-update-products-header">
+      <h1>Cập nhật sản phẩm</h1>
+      <div class="dashboard-update-products-header-actions">
+        <button id="saveBtn">Lưu lại</button>
+        <button id="backBtn"><a href="/products">Quay lại</a></button>
+      </div>
+    </div>
+    <div class="dashboard-update-products-content">
+      <div class="dashboard-update-products-content-grid">
+        <input type="text" id="update_name-input" placeholder="Sản phẩm" />
+        <input
+          type="number"
+          id="update_quantity-input"
+          min="0"
+          placeholder="Số lượng"
+        />
+        <input
+          type="text"
+          id="update_category-input"
+          placeholder="Loại sản phẩm"
+          list="update_product_category"
+        />
+        <datalist id="update_product_category"> </datalist>
+        <input
+          type="text"
+          id="update_status-input"
+          placeholder="Trạng thái"
+          list="update_status"
+        />
+        <datalist id="update_status">
+          <option value="Còn hàng">Còn hàng</option>
+          <option value="Hết hàng">Hết hàng</option>
+        </datalist>
+        <input
+          type="date"
+          id="update_createDate-input"
+          placeholder="Ngày tạo"
+        />
+        <input type="text" id="update_price-input" placeholder="Giá bán" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-footer">
+  <div class="dashboard-footer-content">
+    <div class="dashboard-footer-title">
+      © 2022 VnSolution. All rights reserved.
+    </div>
+    <div class="dashboard-footer-group"></div>
+  </div>
+</div>

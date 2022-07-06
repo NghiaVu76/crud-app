@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
-    <script src="./js/route.js"></script>
-    <script type="module" src="./js/dashboard/index.js"></script>
+    <script type="module" src="./js/route.js"></script>
+    <script type="module" src="./js/dashboard/dashboard.js"></script>
     <script type="module" src="./js/products/productsList.js"></script>
+    <script type="module" src="./js/products/addProducts.js"></script>
+    <script type="module" src="./js/products/updateProducts.js"></script>
 
     <!-- <script type="module" src="./js/index.js"></script> -->
   </head>
@@ -41,7 +43,7 @@
                 <div class="sidebar-content">
                     <div class="sidebar-overview">
                         <div class="sidebar-overview-content">
-                            <a href="/" onclick="route()">
+                            <a href="/" >
                                 <button>
                                     <div class="sidebar-overview-content-icon">
                                         <i class="fas fa-solid fa-square-poll-vertical"></i>
@@ -52,9 +54,12 @@
                         </div>
                     </div>
                     <div class="sidebar-items">
-                      <a href="/products" onclick="route()"><button><i class="fas fa-database"></i><p>Danh sách sản phẩm</p></button></a>
-                      <a href="/customers" onclick="route()"><button><i class="fas fa-users"></i><p>Khách hàng</p></button></a>
-                      <a href="/carts" onclick="route()"><button><i class="fa-solid fa-cart-flatbed"></i><p>Đơn hàng</p></button></a>
+                      <nav>
+
+                        <a href="/products" ><button><i class="fas fa-database"></i><p>Danh sách sản phẩm</p></button></a>
+                        <a href="/customers" ><button><i class="fas fa-users"></i><p>Khách hàng</p></button></a>
+                        <a href="/carts"><button><i class="fa-solid fa-cart-flatbed"></i><p>Đơn hàng</p></button></a>
+                      </nav>
                     </div>
                     <div class="sidebar-bottom">
                         <button>Thu gọn</button>

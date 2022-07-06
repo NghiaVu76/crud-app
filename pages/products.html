@@ -9,12 +9,18 @@
           <input type="text" class="" placeholder="Tìm kiếm..." />
           <button><i class="fa fa-search"></i></button>
         </div>
-        <div class="dashboard-products-list-content-header-actions">
-          <button id="addbtn">Thêm mới</button>
+        <div
+          class="dashboard-products-list-content-header-actions"
+          id="productActions"
+        >
+          <button id="addbtn">
+            <a href="/products/add">Thêm mới</a>
+          </button>
+          <button id="filterShowBtn">Bộ lọc</button>
           <button id="filterHideBtn">Ẩn bộ lọc</button>
         </div>
       </div>
-      <div class="dashboard-products-list-content-filter">
+      <div class="dashboard-products-list-content-filter" id="product_filter">
         <div class="dashboard-products-list-content-filter-grid">
           <input type="text" id="name-input" placeholder="Sản phẩm" />
           <input

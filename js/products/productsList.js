@@ -1,9 +1,13 @@
 import { productsList, socialIcons } from "../constants.js";
+import { urlRoute } from "../route.js";
 
-const productsTable = productsList
-  .map(function (item, index) {
-    if (index % 2 == 1) {
-      return `<tr class="even-row" id="product-row">
+var productsListDuplicate = productsList;
+
+const createProductsList = () => {
+  const productsTable = productsListDuplicate
+    .map(function (item, index) {
+      if (index % 2 == 1) {
+        return `<tr class="even-row" id="product-row">
       <td>${item.productName}</td>
       <td>${item.category}</td>
       <td class="time-column">${item.createdAt}</td>
@@ -11,12 +15,12 @@ const productsTable = productsList
       <td>${item.price}</td>
       <td><div class="${item.statusClass}">${item.status}</div></td>
       <td>
-        <i class="fa-solid fa-pen" id="pen"></i>
-        <i class="fa-regular fa-trash-can" id="trashCan"></i>
+        <a href="/products/update" id="updateBtn"><i class="fa-solid fa-pen" id="pen"></i></a>
+        <button class="deleteBtn"><i class="fa-regular fa-trash-can" id="trashCan"></i></button>
       </td>
       </tr>`;
-    } else if (index % 2 == 0) {
-      return `<tr id="product-row">
+      } else if (index % 2 == 0) {
+        return `<tr id="product-row">
       <td>${item.productName}</td>
       <td>${item.category}</td>
       <td class="time-column">${item.createdAt}</td>
@@ -24,14 +28,17 @@ const productsTable = productsList
       <td>${item.price}</td>
       <td><div class="${item.statusClass}">${item.status}</div></td>
       <td>
-        <i class="fa-solid fa-pen" id="pen"></i>
-        <i class="fa-regular fa-trash-can" id="trashCan"></i>
+        <a href="/products/update" id="updateBtn"><i class="fa-solid fa-pen" id="pen"></i></a>
+        <button class="deleteBtn"><i class="fa-regular fa-trash-can" id="trashCan"></i></button>
       </td>
       </tr>`;
-    }
-  })
-  .join("");
-document.getElementById("productTableBody").innerHTML = productsTable;
+      }
+    })
+    .join("");
+  document.getElementById("productTableBody").innerHTML = productsTable;
+};
+
+createProductsList();
 
 //product category
 var categoryArr = [];
@@ -53,41 +60,77 @@ for (let i = 0; i < newCategoryArr.length - 1; i++) {
   productCategory.innerHTML += `<option value="${newCategoryArr[i]}">${newCategoryArr[i]}</option>`;
 }
 
+//// HIDE/SHOW FILTER
+const filterHideButton = document.getElementById("filterHideBtn");
+const filterShowButton = document.getElementById("filterShowBtn");
+const productFilter = document.getElementById("product_filter");
+
+filterHideButton.style.display = "none";
+productFilter.style.display = "none";
+
+const filterShown = () => {
+  productFilter.style.display = "";
+  filterShowButton.style.display = "none";
+  filterHideButton.style.display = "";
+};
+
+const filterHidden = () => {
+  productFilter.style.display = "none";
+  filterShowButton.style.display = "";
+  filterHideButton.style.display = "none";
+};
+
+filterShowButton.addEventListener("click", filterShown);
+filterHideButton.addEventListener("click", filterHidden);
+
+//// UPDATE BUTTON
+const updateButton = document.getElementById("updateBtn");
+updateButton.addEventListener("click", urlRoute);
+
+//// DELETE BUTTON
+const handleDelete = () => {
+  productsListDuplicate.shift();
+  console.log("products", productsListDuplicate);
+  createProductsList();
+};
+
+document.querySelector(".deleteBtn").addEventListener("click", handleDelete);
+
 //////FILTER PRODUCTS
-var name_input = document.getElementById("name-input");
+// var name_input = document.getElementById("name-input");
 
-function productFilter() {
-  var nameInput, tbody, tr, td;
-  nameInput = name_input.value.toUpperCase();
-  console.log(nameInput);
-  tbody = document.getElementById("productTableBody");
-  tr = document.getElementById("product-row");
+// function productFilter() {
+//   var nameInput, tbody, tr, td;
+//   nameInput = name_input.value.toUpperCase();
+//   console.log(nameInput);
+//   tbody = document.getElementById("productTableBody");
+//   tr = document.getElementById("product-row");
 
-  if (!nameInput) {
-    tbody.style.display = "none";
-  } else {
-    for (let i = 0; i < productsList.length - 1; i++) {
-      td = tr[i].getElementsByTagName("td")[0];
-      console.log(td);
-      if (td.innerHTML.toUpperCase().indexOf(nameInput) > -1) {
-        tbody.style.display = "block";
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
+//   if (!nameInput) {
+//     tbody.style.display = "none";
+//   } else {
+//     for (let i = 0; i < productsList.length - 1; i++) {
+//       td = tr[i].getElementsByTagName("td")[0];
+//       console.log(td);
+//       if (td.innerHTML.toUpperCase().indexOf(nameInput) > -1) {
+//         tbody.style.display = "block";
+//         tr[i].style.display = "";
+//       } else {
+//         tr[i].style.display = "none";
+//       }
+//     }
+//   }
+// }
 
-name_input.addEventListener("keyup", productFilter);
+// name_input.addEventListener("keyup", productFilter);
 
-var quantityInput = document
-  .getElementById("quantity-input")
-  .value.toUpperCase();
-var categoryInput = document
-  .getElementById("category-input")
-  .value.toUpperCase();
-var statusInput = document.getElementById("status-input").value.toUpperCase();
+// var quantityInput = document
+//   .getElementById("quantity-input")
+//   .value.toUpperCase();
+// var categoryInput = document
+//   .getElementById("category-input")
+//   .value.toUpperCase();
+// var statusInput = document.getElementById("status-input").value.toUpperCase();
 
 //////TABLE PAGINATION
 //start
@@ -151,7 +194,6 @@ document.getElementById("nextBtn").addEventListener("click", nextButtonClick);
 // get items per page = select value
 function getItemsPerPage() {
   itemsPerPage = parseInt(document.getElementById("items-quantity").value);
-  console.log(itemsPerPage);
   init(tableName, itemsPerPage);
   showPage(tableName, pageNumber, itemsPerPage);
 }
