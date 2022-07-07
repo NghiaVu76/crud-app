@@ -2,7 +2,6 @@
     padding: 0px;
     width: 15.625%;
     min-width: 125px;
-    max-width: 250px;
     height: 100%;
     border-right: 1px solid var(--cool-gray-200);
 
@@ -14,18 +13,31 @@
         height: 100%;
     }
 
-    &-content {
+    &-top {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        justify-content: space-between;
+        align-items: flex-end;
         width: 100%;
-        height: 613px;
+        height: calc(100% - 32px);
 
         @include tablet {
+            height: calc(100% - 32px);
+        }
+
+        &-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-end;
+            width: 100%;
             height: 100%;
+
+            @include tablet {
+                height: 100%;
+            }
         }
     }
-
 
     &-overview {
         width: 100%;

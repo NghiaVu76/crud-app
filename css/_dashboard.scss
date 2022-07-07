@@ -1,8 +1,10 @@
 .dashboard {
+    display: flex;
     width: 84.375%;
     padding: 16px;
     overflow-y: overlay;
-    height: 613px;
+    height: 100%;
+    margin-right: 0;
     background-color: var(--cool-gray-050);
 
     @include mobile {
@@ -682,28 +684,24 @@
 
                             i {
                                 font-size: 1.2em;
+                                cursor: pointer;
+                            }
+
+                            a {
+                                color: var(--blue-700);
+                                cursor: pointer;
                             }
 
                             button {
                                 border: none;
                                 background-color: transparent;
+                                color: var(--red-700);
+                                cursor: pointer;
                             }
 
                             a+button {
                                 margin-left: 15px;
                             }
-
-                            #pen {
-                                color: var(--blue-700);
-                                cursor: pointer;
-                            }
-
-                            #trashCan {
-                                color: var(--red-700);
-                                cursor: pointer;
-                            }
-
-
 
                         }
                     }
@@ -823,7 +821,7 @@
             margin: 0 16px 16px;
             padding: 32px 24px;
 
-            &-grid {
+            &-form {
                 display: grid;
                 grid-template-columns: calc((100% - 16px) / 2) calc((100% - 16px) / 2);
                 justify-content: space-between;
@@ -838,6 +836,19 @@
                     font-size: 16px;
                     line-height: 24px;
                     color: var(--cool-gray-500);
+                }
+            }
+
+            &-group {
+                display: flex;
+                flex-direction: column;
+
+                .error-message {
+                    // display: none;
+                    line-height: 150%;
+                    color: var(--red-500);
+                    font-size: 12px;
+                    font-weight: 500;
                 }
             }
         }

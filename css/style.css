@@ -78,6 +78,10 @@ html *::-webkit-scrollbar-track {
   background-color: rgba(0, 0, 0, 0);
 }
 
+container {
+  width: 100%;
+}
+
 .navbar {
   display: flex;
   flex-direction: column;
@@ -174,8 +178,9 @@ html *::-webkit-scrollbar-track {
   width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
   top: 71px;
-  height: 613px;
+  height: calc(100vh - 71px);
   left: 0;
 }
 @media screen and (max-width: 450px) {
@@ -193,7 +198,6 @@ html *::-webkit-scrollbar-track {
   padding: 0px;
   width: 15.625%;
   min-width: 125px;
-  max-width: 250px;
   height: 100%;
   border-right: 1px solid var(--cool-gray-200);
 }
@@ -207,15 +211,29 @@ html *::-webkit-scrollbar-track {
     height: 100%;
   }
 }
-.sidebar-content {
+.sidebar-top {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items: flex-end;
   width: 100%;
-  height: 613px;
+  height: calc(100% - 32px);
 }
 @media screen and (max-width: 768px) {
-  .sidebar-content {
+  .sidebar-top {
+    height: calc(100% - 32px);
+  }
+}
+.sidebar-top-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 768px) {
+  .sidebar-top-content {
     height: 100%;
   }
 }
@@ -358,10 +376,12 @@ html *::-webkit-scrollbar-track {
 }
 
 .dashboard {
+  display: flex;
   width: 84.375%;
   padding: 16px;
   overflow-y: overlay;
-  height: 613px;
+  height: 100%;
+  margin-right: 0;
   background-color: var(--cool-gray-050);
 }
 @media screen and (max-width: 450px) {
@@ -962,21 +982,20 @@ html *::-webkit-scrollbar-track {
 }
 .dashboard-products-list-content-table table tbody td i {
   font-size: 1.2em;
+  cursor: pointer;
+}
+.dashboard-products-list-content-table table tbody td a {
+  color: var(--blue-700);
+  cursor: pointer;
 }
 .dashboard-products-list-content-table table tbody td button {
   border: none;
   background-color: transparent;
+  color: var(--red-700);
+  cursor: pointer;
 }
 .dashboard-products-list-content-table table tbody td a + button {
   margin-left: 15px;
-}
-.dashboard-products-list-content-table table tbody td #pen {
-  color: var(--blue-700);
-  cursor: pointer;
-}
-.dashboard-products-list-content-table table tbody td #trashCan {
-  color: var(--red-700);
-  cursor: pointer;
 }
 .dashboard-products-list-content-footer {
   display: flex;
@@ -1072,13 +1091,13 @@ html *::-webkit-scrollbar-track {
   margin: 0 16px 16px;
   padding: 32px 24px;
 }
-.dashboard-add-products-content-grid {
+.dashboard-add-products-content-form {
   display: grid;
   grid-template-columns: calc((100% - 16px) / 2) calc((100% - 16px) / 2);
   justify-content: space-between;
   gap: 24px 16px;
 }
-.dashboard-add-products-content-grid input {
+.dashboard-add-products-content-form input {
   height: 56px;
   border: 1px solid var(--cool-gray-300);
   border-radius: 8px;
@@ -1087,6 +1106,16 @@ html *::-webkit-scrollbar-track {
   font-size: 16px;
   line-height: 24px;
   color: var(--cool-gray-500);
+}
+.dashboard-add-products-content-group {
+  display: flex;
+  flex-direction: column;
+}
+.dashboard-add-products-content-group .error-message {
+  line-height: 150%;
+  color: var(--red-500);
+  font-size: 12px;
+  font-weight: 500;
 }
 .dashboard-update-products {
   width: 100%;

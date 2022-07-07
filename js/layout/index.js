@@ -1,13 +1,13 @@
-import { menuItems } from "../constants.js";
+// import { menuItems } from "../constants.js";
 
-const menuList = document.querySelector(".sidebar-items");
+// const menuList = document.querySelector(".sidebar-items");
 
-//create sidebar menu
-const createMenuList = () => {
-  menuItems.forEach((item) => {
-    menuList.innerHTML += `<a href="${item.path}" onclick="route()"><button><i class="${item.class}"></i><p>${item.title}</p></button></a>`;
-  });
-};
+// //create sidebar menu
+// const createMenuList = () => {
+//   menuItems.forEach((item) => {
+//     menuList.innerHTML += `<a href="${item.path}" onclick="route()"><button><i class="${item.class}"></i><p>${item.title}</p></button></a>`;
+//   });
+// };
 
 // createMenuList();
 

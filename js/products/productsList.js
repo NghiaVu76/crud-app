@@ -15,8 +15,8 @@ const createProductsList = () => {
       <td>${item.price}</td>
       <td><div class="${item.statusClass}">${item.status}</div></td>
       <td>
-        <a href="/products/update" id="updateBtn"><i class="fa-solid fa-pen" id="pen"></i></a>
-        <button class="deleteBtn"><i class="fa-regular fa-trash-can" id="trashCan"></i></button>
+        <a href="/products/update" id="updateBtn"><i class="fa-solid fa-pen"></i></a>
+        <button class="deleteBtn"><i class="fa-regular fa-trash-can" id="${index}"></i></button>
       </td>
       </tr>`;
       } else if (index % 2 == 0) {
@@ -28,8 +28,8 @@ const createProductsList = () => {
       <td>${item.price}</td>
       <td><div class="${item.statusClass}">${item.status}</div></td>
       <td>
-        <a href="/products/update" id="updateBtn"><i class="fa-solid fa-pen" id="pen"></i></a>
-        <button class="deleteBtn"><i class="fa-regular fa-trash-can" id="trashCan"></i></button>
+        <a href="/products/update" id="updateBtn"><i class="fa-solid fa-pen"></i></a>
+        <button class="deleteBtn" ><i class="fa-regular fa-trash-can" id="${index}"></i></button>
       </td>
       </tr>`;
       }
@@ -41,24 +41,46 @@ const createProductsList = () => {
 createProductsList();
 
 //product category
-var categoryArr = [];
-productsList.map((item, index) => {
-  categoryArr.push(item.category);
-});
+// var categoryArr = [];
+// productsList.map((item, index) => {
+//   categoryArr.push(item.category);
+// });
 
-// delete the categories that duplicated
-let newCategoryArr = categoryArr.reduce((acc, category) => {
-  if (acc.indexOf(category) === -1) {
-    acc.push(category);
+// // delete the categories that duplicated
+// let newCategoryArr = categoryArr.reduce((acc, category) => {
+//   if (acc.indexOf(category) === -1) {
+//     acc.push(category);
+//   }
+//   return acc;
+// }, []);
+
+// // render category list <select>
+// var productCategory = document.getElementById("product_category");
+// for (let i = 0; i < newCategoryArr.length - 1; i++) {
+//   productCategory.innerHTML += `<option value="${newCategoryArr[i]}">${newCategoryArr[i]}</option>`;
+// }
+const renderProductCategory = () => {
+  let categoryArr = [];
+  productsList.map((item, index) => {
+    categoryArr.push(item.category);
+  });
+
+  // delete the categories that duplicated
+  let newCategoryArr = categoryArr.reduce((acc, category) => {
+    if (acc.indexOf(category) === -1) {
+      acc.push(category);
+    }
+    return acc;
+  }, []);
+
+  // render category list <select>
+  var ProductCategory = document.getElementById("product_category");
+  for (let i = 0; i < newCategoryArr.length - 1; i++) {
+    ProductCategory.innerHTML += `<option value="${newCategoryArr[i]}">${newCategoryArr[i]}</option>`;
   }
-  return acc;
-}, []);
+};
 
-// render category list <select>
-var productCategory = document.getElementById("product_category");
-for (let i = 0; i < newCategoryArr.length - 1; i++) {
-  productCategory.innerHTML += `<option value="${newCategoryArr[i]}">${newCategoryArr[i]}</option>`;
-}
+renderProductCategory();
 
 //// HIDE/SHOW FILTER
 const filterHideButton = document.getElementById("filterHideBtn");
@@ -88,13 +110,27 @@ const updateButton = document.getElementById("updateBtn");
 updateButton.addEventListener("click", urlRoute);
 
 //// DELETE BUTTON
-const handleDelete = () => {
-  productsListDuplicate.shift();
+const handleDelete = (event) => {
+  productsListDuplicate.splice(event.target.id, 1); //xóa phần tử ở vị trí = id của element kích hoạt sự kiện
   console.log("products", productsListDuplicate);
   createProductsList();
+
+  init(tableName, itemsPerPage); // thêm phân trang cho bảng mới sau khi xóa
+  showPage(tableName, pageNumber, itemsPerPage);
+
+  // add lại event 'click' cho các button sau khi xóa 1 item
+  for (let i = 0; i < deleteButtons.length; i++) {
+    var button = deleteButtons[i];
+    button.addEventListener("click", handleDelete);
+  }
 };
 
-document.querySelector(".deleteBtn").addEventListener("click", handleDelete);
+var deleteButtons = document.getElementsByClassName("deleteBtn");
+for (let i = 0; i < deleteButtons.length; i++) {
+  // add event 'click' for all deleteButton
+  var button = deleteButtons[i];
+  button.addEventListener("click", handleDelete);
+}
 
 //////FILTER PRODUCTS
 // var name_input = document.getElementById("name-input");
@@ -161,6 +197,7 @@ const showPage = function (tableName, pageNumber, itemsPerPage) {
 
   var rows = document.getElementById(tableName).rows;
 
+  if (rows.length === 1) from = 0;
   if (to > rows.length - 1) to = rows.length - 1;
 
   document.getElementById(

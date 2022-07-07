@@ -1,22 +1,34 @@
-document.addEventListener("click", (e) => {
-  const { target } = e;
-  if (!target.matches("nav a")) {
-    return;
-  }
-  e.preventDefault();
-  urlRoute();
-});
+// document.addEventListener("click", (e) => {
+//   const { target } = e;
+//   if (!target.matches("nav a") || !target.matches("div a")) {
+//     return;
+//   }
+//   e.preventDefault();
+//   urlRoute();
+// });
+
+document.querySelectorAll("a").forEach((el) =>
+  el.addEventListener("click", (e) => {
+    const { target } = e;
+    if (!target.matches("nav a") || !target.matches("div a")) {
+      return;
+    }
+    e.preventDefault();
+    urlRoute();
+  })
+);
 
 export const urlRoute = (event) => {
   event = event || window.event;
   event.preventDefault();
   window.history.pushState({}, "", event.target.href);
+  console.log("event.target.href", event.target.href);
   console.log(2);
   handleLocation();
 };
 
 const routes = {
-  "/": "pages/products.html",
+  "/": "pages/products/add.html",
   "/products": "/pages/products.html",
   "/products/add": "/pages/products/add.html",
   "/products/update": "/pages/products/update.html",
@@ -29,6 +41,7 @@ const handleLocation = async () => {
   if (path.length === 0) path = "/";
   console.log(path);
   const route = routes[path];
+  console.log(route);
   const html = await fetch(route).then((data) => data.text());
   document.getElementById("main-page").innerHTML = html;
 };

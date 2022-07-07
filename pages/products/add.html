@@ -10,33 +10,69 @@
       </div>
     </div>
     <div class="dashboard-add-products-content">
-      <div class="dashboard-add-products-content-grid">
-        <input type="text" id="add_name-input" placeholder="Sản phẩm" />
-        <input
-          type="number"
-          id="add_quantity-input"
-          min="0"
-          placeholder="Số lượng"
-        />
-        <input
-          type="text"
-          id="add_category-input"
-          placeholder="Loại sản phẩm"
-          list="add_product_category"
-        />
-        <datalist id="add_product_category"> </datalist>
-        <input
-          type="text"
-          id="add_status-input"
-          placeholder="Trạng thái"
-          list="add_status"
-        />
-        <datalist id="add_status">
-          <option value="Còn hàng">Còn hàng</option>
-          <option value="Hết hàng">Hết hàng</option>
-        </datalist>
-        <input type="date" id="add_createDate-input" placeholder="Ngày tạo" />
-        <input type="text" id="add_price-input" placeholder="Giá bán" />
+      <div class="dashboard-add-products-content-form" id="form">
+        <div class="dashboard-add-products-content-group">
+          <input
+            class="form-input"
+            id="add_name-input"
+            type="text"
+            placeholder="Sản phẩm"
+          />
+          <div class="error-message">* Vui lòng nhập tên sản phẩm!</div>
+        </div>
+        <div class="dashboard-add-products-content-group">
+          <input
+            class="form-input"
+            id="add_quantity-input"
+            min="0"
+            type="number"
+            placeholder="Số lượng"
+          />
+          <div class="error-message">* Vui lòng nhập số lượng sản phẩm!</div>
+        </div>
+        <div class="dashboard-add-products-content-group">
+          <input
+            class="form-input"
+            id="add_category-input"
+            type="text"
+            placeholder="Loại sản phẩm"
+            list="add_product_category"
+          />
+          <datalist id="add_product_category"></datalist>
+          <div class="error-message">* Vui lòng nhập loại sản phẩm!</div>
+        </div>
+        <div class="dashboard-add-products-content-group">
+          <input
+            class="form-input"
+            id="add_status-input"
+            type="text"
+            placeholder="Trạng thái"
+            list="add_status"
+          />
+          <datalist id="add_status">
+            <option value="Còn hàng">Còn hàng</option>
+            <option value="Hết hàng">Hết hàng</option>
+          </datalist>
+          <div class="error-message">* Vui lòng nhập trạng thái sản phẩm!</div>
+        </div>
+        <div class="dashboard-add-products-content-group">
+          <input
+            class="form-input"
+            id="add_createDate-input"
+            type="date"
+            placeholder="Ngày tạo"
+          />
+          <div class="error-message">* Vui lòng nhập ngày tạo sản phẩm!</div>
+        </div>
+        <div class="dashboard-add-products-content-group">
+          <input
+            class="form-input"
+            id="add_price-input"
+            type="text"
+            placeholder="Giá bán"
+          />
+          <div class="error-message">* Vui lòng nhập giá sản phẩm!</div>
+        </div>
       </div>
     </div>
   </div>

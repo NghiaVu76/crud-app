@@ -3,6 +3,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="font-src 'self' data:; img-src 'self' data:; default-src 'self' http://121.0.0:3000/"> -->
     <title>Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Nunito+Sans:wght@200;300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
@@ -13,8 +14,6 @@
     <script type="module" src="./js/products/productsList.js"></script>
     <script type="module" src="./js/products/addProducts.js"></script>
     <script type="module" src="./js/products/updateProducts.js"></script>
-
-    <!-- <script type="module" src="./js/index.js"></script> -->
   </head>
   <body>
     <div class="container">
@@ -40,10 +39,11 @@
         </div>
         <div class="homepage">
             <div class="sidebar">
-                <div class="sidebar-content">
+                <div class="sidebar-top">
+                  <div class="sidebar-top-content">
                     <div class="sidebar-overview">
                         <div class="sidebar-overview-content">
-                            <a href="/" >
+                            <a href="/">
                                 <button>
                                     <div class="sidebar-overview-content-icon">
                                         <i class="fas fa-solid fa-square-poll-vertical"></i>
@@ -55,16 +55,16 @@
                     </div>
                     <div class="sidebar-items">
                       <nav>
-
-                        <a href="/products" ><button><i class="fas fa-database"></i><p>Danh sách sản phẩm</p></button></a>
+                        <a href="/products"><button><i class="fas fa-database"></i><p>Danh sách sản phẩm</p></button></a>
                         <a href="/customers" ><button><i class="fas fa-users"></i><p>Khách hàng</p></button></a>
-                        <a href="/carts"><button><i class="fa-solid fa-cart-flatbed"></i><p>Đơn hàng</p></button></a>
+                        <a href="/carts" ><button><i class="fa-solid fa-cart-flatbed"></i><p>Đơn hàng</p></button></a>
                       </nav>
                     </div>
-                    <div class="sidebar-bottom">
-                        <button>Thu gọn</button>
                     </div>
-                </div>
+                  </div>
+                  <div class="sidebar-bottom">
+                      <button>Thu gọn</button>
+                  </div>
             </div>
             <div class="dashboard">
                 <div class="dashboard-content" id="main-page">
