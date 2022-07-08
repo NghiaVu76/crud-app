@@ -501,7 +501,7 @@
                         height: 35px;
                         border: none;
                         padding: 8px 0 8px 12px;
-                        font-family: 'Tahoma';
+                        font-family: var(--font-family);
                         font-style: normal;
                         font-weight: 400;
                         font-size: 13px;
@@ -898,7 +898,7 @@
                     cursor: pointer;
                 }
 
-                #saveBtn {
+                #updateSaveBtn {
                     width: 80px;
                     background-color: var(--blue-600);
                     color: #fff;
@@ -925,7 +925,7 @@
             margin: 0 16px 16px;
             padding: 32px 24px;
 
-            &-grid {
+            &-form {
                 display: grid;
                 grid-template-columns: calc((100% - 16px) / 2) calc((100% - 16px) / 2);
                 justify-content: space-between;
@@ -940,6 +940,19 @@
                     font-size: 16px;
                     line-height: 24px;
                     color: var(--cool-gray-500);
+                }
+            }
+
+            &-group {
+                display: flex;
+                flex-direction: column;
+
+                .error-message {
+                    // display: none;
+                    line-height: 150%;
+                    color: var(--red-500);
+                    font-size: 12px;
+                    font-weight: 500;
                 }
             }
         }

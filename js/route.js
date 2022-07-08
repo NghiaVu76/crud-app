@@ -1,22 +1,23 @@
-// document.addEventListener("click", (e) => {
-//   const { target } = e;
-//   if (!target.matches("nav a") || !target.matches("div a")) {
-//     return;
-//   }
-//   e.preventDefault();
-//   urlRoute();
-// });
+document.addEventListener("click", (e) => {
+  const { target } = e;
+  if (!target.matches("nav a") || !target.matches("div a")) {
+    return;
+  }
+  e.preventDefault();
+  urlRoute();
+});
 
-document.querySelectorAll("a").forEach((el) =>
-  el.addEventListener("click", (e) => {
-    const { target } = e;
-    if (!target.matches("nav a") || !target.matches("div a")) {
-      return;
-    }
-    e.preventDefault();
-    urlRoute();
-  })
-);
+// document.querySelectorAll("a").forEach((el) =>
+//   el.addEventListener("click", (e) => {
+//     const { target } = e;
+//     console.log(target);
+//     if (!target.matches("nav a") || !target.matches("div a")) {
+//       return;
+//     }
+//     e.preventDefault();
+//     urlRoute();
+//   })
+// );
 
 export const urlRoute = (event) => {
   event = event || window.event;
@@ -28,19 +29,48 @@ export const urlRoute = (event) => {
 };
 
 const routes = {
-  "/": "pages/products/add.html",
-  "/products": "/pages/products.html",
-  "/products/add": "/pages/products/add.html",
-  "/products/update": "/pages/products/update.html",
-  "/customers": "/pages/customers.html",
-  "/carts": "/pages/carts.html",
+  DASHBOARD: {
+    pathname: "/",
+    link: "/pages/products.html",
+  },
+
+  PRODUCT: {
+    pathname: "/products",
+    link: "/pages/products.html",
+  },
+
+  ADD_PRODUCT: {
+    pathname: "/products/add",
+    link: "/pages/products/add.html",
+  },
+
+  UPDATE_PRODUCT: {
+    pathname: "/products/update",
+    link: "/pages/products/update.html",
+  },
+
+  // "/": "pages/products.html",
+  // "/products": "/pages/products/add.html",
+  // "/products/add": "/pages/products/add.html",
+  // "/products/update": "/pages/products/update.html",
+  // "/customers": "/pages/customers.html",
+  // "/carts": "/pages/carts.html",
 };
 
 const handleLocation = async () => {
   const path = window.location.pathname;
   if (path.length === 0) path = "/";
   console.log(path);
-  const route = routes[path];
+  let route;
+  if (path == routes.DASHBOARD.pathname) {
+    route = routes.DASHBOARD.link;
+  } else if (path == routes.PRODUCT.pathname) {
+    route = routes.PRODUCT.link;
+  } else if (path == routes.ADD_PRODUCT.pathname) {
+    route = routes.ADD_PRODUCT.link;
+  } else if (path == routes.UPDATE_PRODUCT.pathname) {
+    route = routes.UPDATE_PRODUCT.link;
+  }
   console.log(route);
   const html = await fetch(route).then((data) => data.text());
   document.getElementById("main-page").innerHTML = html;

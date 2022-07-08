@@ -827,7 +827,7 @@ container {
   height: 35px;
   border: none;
   padding: 8px 0 8px 12px;
-  font-family: "Tahoma";
+  font-family: var(--font-family);
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
@@ -1158,7 +1158,7 @@ container {
   padding: 0;
   cursor: pointer;
 }
-.dashboard-update-products-header-actions #saveBtn {
+.dashboard-update-products-header-actions #updateSaveBtn {
   width: 80px;
   background-color: var(--blue-600);
   color: #fff;
@@ -1179,13 +1179,13 @@ container {
   margin: 0 16px 16px;
   padding: 32px 24px;
 }
-.dashboard-update-products-content-grid {
+.dashboard-update-products-content-form {
   display: grid;
   grid-template-columns: calc((100% - 16px) / 2) calc((100% - 16px) / 2);
   justify-content: space-between;
   gap: 24px 16px;
 }
-.dashboard-update-products-content-grid input {
+.dashboard-update-products-content-form input {
   height: 56px;
   border: 1px solid var(--cool-gray-300);
   border-radius: 8px;
@@ -1194,6 +1194,16 @@ container {
   font-size: 16px;
   line-height: 24px;
   color: var(--cool-gray-500);
+}
+.dashboard-update-products-content-group {
+  display: flex;
+  flex-direction: column;
+}
+.dashboard-update-products-content-group .error-message {
+  line-height: 150%;
+  color: var(--red-500);
+  font-size: 12px;
+  font-weight: 500;
 }
 .dashboard-footer {
   display: flex;

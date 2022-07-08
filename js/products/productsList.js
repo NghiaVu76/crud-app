@@ -1,10 +1,8 @@
 import { productsList, socialIcons } from "../constants.js";
 import { urlRoute } from "../route.js";
 
-var productsListDuplicate = productsList;
-
-const createProductsList = () => {
-  const productsTable = productsListDuplicate
+const createProductsList = (array) => {
+  const productsTable = array
     .map(function (item, index) {
       if (index % 2 == 1) {
         return `<tr class="even-row" id="product-row">
@@ -15,7 +13,7 @@ const createProductsList = () => {
       <td>${item.price}</td>
       <td><div class="${item.statusClass}">${item.status}</div></td>
       <td>
-        <a href="/products/update" id="updateBtn"><i class="fa-solid fa-pen"></i></a>
+        <a class="updateBtn"><i class="fa-solid fa-pen" id=${index}></i></a>
         <button class="deleteBtn"><i class="fa-regular fa-trash-can" id="${index}"></i></button>
       </td>
       </tr>`;
@@ -28,7 +26,7 @@ const createProductsList = () => {
       <td>${item.price}</td>
       <td><div class="${item.statusClass}">${item.status}</div></td>
       <td>
-        <a href="/products/update" id="updateBtn"><i class="fa-solid fa-pen"></i></a>
+        <a class="updateBtn"><i class="fa-solid fa-pen" id=${index}></i></a>
         <button class="deleteBtn" ><i class="fa-regular fa-trash-can" id="${index}"></i></button>
       </td>
       </tr>`;
@@ -37,28 +35,11 @@ const createProductsList = () => {
     .join("");
   document.getElementById("productTableBody").innerHTML = productsTable;
 };
+var productsListDuplicate = JSON.parse(localStorage.getItem("list-product")); //lấy dữ liệu từ localStorage
+console.log("productsListDuplicate", productsListDuplicate);
+createProductsList(productsListDuplicate); // tạo bảng sản phẩm (sử dụng mảng lấy từ localStorage)
 
-createProductsList();
-
-//product category
-// var categoryArr = [];
-// productsList.map((item, index) => {
-//   categoryArr.push(item.category);
-// });
-
-// // delete the categories that duplicated
-// let newCategoryArr = categoryArr.reduce((acc, category) => {
-//   if (acc.indexOf(category) === -1) {
-//     acc.push(category);
-//   }
-//   return acc;
-// }, []);
-
-// // render category list <select>
-// var productCategory = document.getElementById("product_category");
-// for (let i = 0; i < newCategoryArr.length - 1; i++) {
-//   productCategory.innerHTML += `<option value="${newCategoryArr[i]}">${newCategoryArr[i]}</option>`;
-// }
+///// add list categories for 'select' input
 const renderProductCategory = () => {
   let categoryArr = [];
   productsList.map((item, index) => {
@@ -106,14 +87,36 @@ filterShowButton.addEventListener("click", filterShown);
 filterHideButton.addEventListener("click", filterHidden);
 
 //// UPDATE BUTTON
-const updateButton = document.getElementById("updateBtn");
-updateButton.addEventListener("click", urlRoute);
+// constupdateProduct = (event) => {};
+var productNeedUpdate = [];
+const updateButtonClick = (e) => {
+  console.log(e.target.id);
+
+  for (let i = 0; i < productsListDuplicate.length; i++) {
+    if (i == e.target.id) {
+      productNeedUpdate.push({ id: i, content: productsListDuplicate[i] });
+      console.log(productNeedUpdate);
+      localStorage.setItem(
+        "productNeedUpdate",
+        JSON.stringify(productNeedUpdate)
+      );
+    }
+  }
+  // updateProduct();
+  // urlRoute();
+};
+
+var updateButtons = document.getElementsByClassName("updateBtn");
+for (let i = 0; i < updateButtons.length; i++) {
+  var updateButton = updateButtons[i];
+  updateButton.addEventListener("click", updateButtonClick);
+}
 
 //// DELETE BUTTON
 const handleDelete = (event) => {
   productsListDuplicate.splice(event.target.id, 1); //xóa phần tử ở vị trí = id của element kích hoạt sự kiện
-  console.log("products", productsListDuplicate);
-  createProductsList();
+  localStorage.setItem("list-product", JSON.stringify(productsListDuplicate));
+  createProductsList(productsListDuplicate); // render lại bảng sau khi xóa
 
   init(tableName, itemsPerPage); // thêm phân trang cho bảng mới sau khi xóa
   showPage(tableName, pageNumber, itemsPerPage);
@@ -132,41 +135,72 @@ for (let i = 0; i < deleteButtons.length; i++) {
   button.addEventListener("click", handleDelete);
 }
 
+////SEARCH PRODUCTS
+var search_input = document.getElementById("search-input");
+
+function handleSearch() {
+  var searchInput = search_input.value.toUpperCase();
+  // var quantityInput = quantity_input.value.toUpperCase();
+  // var categoryInput = category_input.value.toUpperCase();
+  // var statusInput = status_input.value.toUpperCase();
+
+  let searchArr = [];
+
+  for (let i = 0; i < productsListDuplicate.length - 1; i++) {
+    if (searchInput == productsListDuplicate[i].productName.toUpperCase()) {
+      searchArr.push(productsListDuplicate[i]);
+      console.log("searchArr", searchArr);
+      createProductsList(searchArr); // tạo bảng với dữ liệu đã được lọc
+
+      init(tableName, itemsPerPage); // thêm phân trang cho bảng mới sau khi lọc
+      showPage(tableName, pageNumber, itemsPerPage);
+    }
+  }
+}
+document
+  .getElementById("search-button")
+  .addEventListener("click", handleSearch);
+
 //////FILTER PRODUCTS
-// var name_input = document.getElementById("name-input");
+var name_input = document.getElementById("name-input");
 
-// function productFilter() {
-//   var nameInput, tbody, tr, td;
-//   nameInput = name_input.value.toUpperCase();
-//   console.log(nameInput);
-//   tbody = document.getElementById("productTableBody");
-//   tr = document.getElementById("product-row");
+var quantity_input = document.getElementById("quantity-input");
 
-//   if (!nameInput) {
-//     tbody.style.display = "none";
-//   } else {
-//     for (let i = 0; i < productsList.length - 1; i++) {
-//       td = tr[i].getElementsByTagName("td")[0];
-//       console.log(td);
-//       if (td.innerHTML.toUpperCase().indexOf(nameInput) > -1) {
-//         tbody.style.display = "block";
-//         tr[i].style.display = "";
-//       } else {
-//         tr[i].style.display = "none";
-//       }
-//     }
-//   }
-// }
+var category_input = document.getElementById("category-input");
 
-// name_input.addEventListener("keyup", productFilter);
+var status_input = document.getElementById("status-input");
 
-// var quantityInput = document
-//   .getElementById("quantity-input")
-//   .value.toUpperCase();
-// var categoryInput = document
-//   .getElementById("category-input")
-//   .value.toUpperCase();
-// var statusInput = document.getElementById("status-input").value.toUpperCase();
+function handleFilter() {
+  var nameInput = name_input.value.toUpperCase();
+  var quantityInput = quantity_input.value;
+  var categoryInput = category_input.value.toUpperCase();
+  var statusInput = status_input.value.toUpperCase();
+
+  let filterArr = [];
+  for (let i = 0; i < productsListDuplicate.length - 1; i++) {
+    if (
+      (nameInput == productsListDuplicate[i].productName.toUpperCase() ||
+        nameInput == "") &&
+      (quantityInput == productsListDuplicate[i].quantity ||
+        quantityInput == "") &&
+      (categoryInput == productsListDuplicate[i].category.toUpperCase() ||
+        categoryInput == "") &&
+      (statusInput == productsListDuplicate[i].status.toUpperCase() ||
+        statusInput == "")
+    ) {
+      filterArr.push(productsListDuplicate[i]);
+      createProductsList(filterArr); // tạo bảng với dữ liệu đã được lọc
+
+      init(tableName, itemsPerPage); // thêm phân trang cho bảng mới sau khi lọc
+      showPage(tableName, pageNumber, itemsPerPage);
+    }
+  }
+}
+
+name_input.addEventListener("keyup", handleFilter);
+quantity_input.addEventListener("keyup", handleFilter);
+category_input.addEventListener("keyup", handleFilter);
+status_input.addEventListener("keyup", handleFilter);
 
 //////TABLE PAGINATION
 //start

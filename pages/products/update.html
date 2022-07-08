@@ -3,42 +3,69 @@
     <div class="dashboard-update-products-header">
       <h1>Cập nhật sản phẩm</h1>
       <div class="dashboard-update-products-header-actions">
-        <button id="saveBtn">Lưu lại</button>
+        <button id="updateSaveBtn">Lưu lại</button>
         <button id="backBtn"><a href="/products">Quay lại</a></button>
       </div>
     </div>
     <div class="dashboard-update-products-content">
-      <div class="dashboard-update-products-content-grid">
-        <input type="text" id="update_name-input" placeholder="Sản phẩm" />
-        <input
-          type="number"
-          id="update_quantity-input"
-          min="0"
-          placeholder="Số lượng"
-        />
-        <input
-          type="text"
-          id="update_category-input"
-          placeholder="Loại sản phẩm"
-          list="update_product_category"
-        />
-        <datalist id="update_product_category"> </datalist>
-        <input
-          type="text"
-          id="update_status-input"
-          placeholder="Trạng thái"
-          list="update_status"
-        />
-        <datalist id="update_status">
-          <option value="Còn hàng">Còn hàng</option>
-          <option value="Hết hàng">Hết hàng</option>
-        </datalist>
-        <input
-          type="date"
-          id="update_createDate-input"
-          placeholder="Ngày tạo"
-        />
-        <input type="text" id="update_price-input" placeholder="Giá bán" />
+      <div class="dashboard-update-products-content-form" id="update-form">
+        <div class="dashboard-update-products-content-group">
+          <input
+            class="update-form-input"
+            type="text"
+            id="update_name-input"
+            placeholder="Sản phẩm"
+          />
+          <div class="update_error-message"></div>
+        </div>
+        <div class="dashboard-update-products-content-group">
+          <input
+            class="update-form-input"
+            type="number"
+            id="update_quantity-input"
+            min="0"
+            placeholder="Số lượng"
+          />
+          <div class="update_error-message"></div>
+        </div>
+        <div class="dashboard-update-products-content-group">
+          <input
+            class="update-form-input"
+            type="text"
+            id="update_category-input"
+            placeholder="Loại sản phẩm"
+            list="update_product_category"
+          />
+          <datalist id="update_product_category"></datalist>
+          <div class="update_error-message"></div>
+        </div>
+        <div class="dashboard-update-products-content-group">
+          <input
+            class="update-form-input"
+            type="text"
+            id="update_status-input"
+            placeholder="Trạng thái"
+            list="update_status"
+          />
+          <datalist id="update_status">
+            <option value="Còn hàng">Còn hàng</option>
+            <option value="Hết hàng">Hết hàng</option>
+          </datalist>
+          <div class="update_error-message"></div>
+        </div>
+        <div class="dashboard-update-products-content-group">
+          <input
+            class="update-form-input"
+            type="date"
+            id="update_createDate-input"
+            placeholder="Ngày tạo"
+          />
+          <div class="update_error-message"></div>
+        </div>
+        <div class="dashboard-update-products-content-group">
+          <input type="text" id="update_price-input" placeholder="Giá bán" />
+          <div class="update_error-message"></div>
+        </div>
       </div>
     </div>
   </div>
