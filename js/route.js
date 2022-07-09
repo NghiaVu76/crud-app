@@ -1,37 +1,20 @@
-document.addEventListener("click", (e) => {
-  const { target } = e;
-  if (!target.matches("nav a") || !target.matches("div a")) {
-    return;
-  }
-  e.preventDefault();
-  urlRoute();
-});
-
-// document.querySelectorAll("a").forEach((el) =>
-//   el.addEventListener("click", (e) => {
-//     const { target } = e;
-//     console.log(target);
-//     if (!target.matches("nav a") || !target.matches("div a")) {
-//       return;
-//     }
-//     e.preventDefault();
-//     urlRoute();
-//   })
-// );
-
-export const urlRoute = (event) => {
-  event = event || window.event;
-  event.preventDefault();
-  window.history.pushState({}, "", event.target.href);
-  console.log("event.target.href", event.target.href);
-  console.log(2);
-  handleLocation();
-};
+// document.addEventListener("click", (e) => {
+//   const { target } = e;
+//   if (
+//     !target.matches("nav a") ||
+//     !target.matches("div a") ||
+//     !target.matches("button a")
+//   ) {
+//     return;
+//   }
+//   e.preventDefault();
+//   urlRoute();
+// });
 
 const routes = {
   DASHBOARD: {
     pathname: "/",
-    link: "/pages/products.html",
+    link: "/pages/index.html",
   },
 
   PRODUCT: {
@@ -73,8 +56,30 @@ const handleLocation = async () => {
   }
   console.log(route);
   const html = await fetch(route).then((data) => data.text());
+  console.log(html);
   document.getElementById("main-page").innerHTML = html;
 };
+
+const urlRoute = (event) => {
+  event = event || window.event;
+  event.preventDefault();
+  window.history.pushState({}, "", event.target.href);
+  console.log("event.target.href", event.target.href);
+  console.log(2);
+  handleLocation();
+};
+
+document.querySelectorAll("a").forEach((el) =>
+  el.addEventListener("click", (e) => {
+    const { target } = e;
+    console.log(target);
+    if (!target.matches("nav a") || !target.matches("div a")) {
+      return;
+    }
+    e.preventDefault();
+    urlRoute();
+  })
+);
 
 window.onpopstate = handleLocation;
 window.route = urlRoute;

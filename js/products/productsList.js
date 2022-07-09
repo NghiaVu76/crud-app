@@ -1,5 +1,5 @@
 import { productsList, socialIcons } from "../constants.js";
-import { urlRoute } from "../route.js";
+// import { urlRoute } from "../route.js";
 
 const createProductsList = (array) => {
   const productsTable = array
@@ -36,7 +36,7 @@ const createProductsList = (array) => {
   document.getElementById("productTableBody").innerHTML = productsTable;
 };
 var productsListDuplicate = JSON.parse(localStorage.getItem("list-product")); //lấy dữ liệu từ localStorage
-console.log("productsListDuplicate", productsListDuplicate);
+// console.log("productsListDuplicate", productsListDuplicate);
 createProductsList(productsListDuplicate); // tạo bảng sản phẩm (sử dụng mảng lấy từ localStorage)
 
 ///// add list categories for 'select' input
@@ -88,8 +88,8 @@ filterHideButton.addEventListener("click", filterHidden);
 
 //// UPDATE BUTTON
 // constupdateProduct = (event) => {};
-var productNeedUpdate = [];
 const updateButtonClick = (e) => {
+  var productNeedUpdate = [];
   console.log(e.target.id);
 
   for (let i = 0; i < productsListDuplicate.length; i++) {
@@ -102,8 +102,6 @@ const updateButtonClick = (e) => {
       );
     }
   }
-  // updateProduct();
-  // urlRoute();
 };
 
 var updateButtons = document.getElementsByClassName("updateBtn");

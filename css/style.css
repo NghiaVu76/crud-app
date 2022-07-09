@@ -479,7 +479,6 @@ container {
 }
 .dashboard-tactics-customers {
   width: calc(30% - 8px);
-  max-width: 380.33px;
   height: 448px;
   box-shadow: var(--box-shadow);
   border-radius: 16px;
@@ -561,7 +560,6 @@ container {
 }
 .dashboard-tactics-products {
   width: calc(70% - 8px);
-  max-width: 920.67px;
   height: 448px;
   box-shadow: var(--box-shadow);
   border-radius: 16px;

@@ -1,7 +1,7 @@
 import { productsList, socialIcons } from "../constants.js";
 
 var productNeedUpdate = JSON.parse(localStorage.getItem("productNeedUpdate"));
-console.log(productNeedUpdate);
+// console.log(productNeedUpdate);
 
 document.getElementById("update_name-input").value =
   productNeedUpdate[0].content.productName;

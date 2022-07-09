@@ -16,7 +16,7 @@ var newCategoryArr = categoryArr.reduce((acc, category) => {
 
 // render category list <select>
 var addProductCategory = document.getElementById("add_product_category");
-console.log(addProductCategory);
+// console.log(addProductCategory);
 const renderProductCategory = () => {
   for (let i = 0; i < newCategoryArr.length - 1; i++) {
     if (addProductCategory != null)
