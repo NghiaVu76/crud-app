@@ -589,6 +589,11 @@
                 width: 100%;
                 height: auto;
 
+                @include mobile {
+                    width: 100%;
+                    overflow-x: auto;
+                }
+
                 table {
                     width: 100%;
                     height: auto;
@@ -597,11 +602,6 @@
                     border: none;
                     box-sizing: border-box;
                     box-shadow: var(--box-shadow);
-
-                    @include mobile {
-                        width: 200%;
-                        overflow-x: auto;
-                    }
 
                     thead {
                         width: 100%;
@@ -682,19 +682,15 @@
                             }
 
                             i {
-                                font-size: 1.2em;
+                                font-size: 1.3em;
                                 cursor: pointer;
                             }
 
-                            .updateBtn {
+                            a {
+                                padding: 10px;
                                 color: var(--blue-700);
                                 text-decoration: none;
                                 cursor: pointer;
-
-                                i {
-                                    font-size: 1.2em;
-                                    cursor: pointer;
-                                }
                             }
 
                             button {
@@ -705,7 +701,7 @@
                             }
 
                             a+button {
-                                margin-left: 15px;
+                                margin-left: 10px;
                             }
 
                         }

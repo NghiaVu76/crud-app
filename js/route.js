@@ -97,7 +97,7 @@ export const route = (event) => {
 
 const routes = {
   404: "pages/404.html",
-  "/": "pages/dashboard.html",
+  "/": "pages/products.html",
   "/products": "pages/products.html",
   "/add_products": "pages/products/add.html",
   "/update_products": "pages/products/update.html",

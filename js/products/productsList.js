@@ -26,7 +26,7 @@ const createProductsList = (array) => {
       <td>${item.price}</td>
       <td><div class="${item.statusClass}">${item.status}</div></td>
       <td>
-        <a href="/update_products" class="updateBtn"><i class="fa-solid fa-pen" id=${index}></i></a>
+        <a href="/update_products" class="updateBtn" ><i class="fa-solid fa-pen" id=${index}></i></a>
         <button class="deleteBtn" ><i class="fa-regular fa-trash-can" id="${index}"></i></button>
       </td>
       </tr>`;
@@ -71,26 +71,25 @@ const productFilter = document.getElementById("product_filter");
 filterHideButton.style.display = "none";
 productFilter.style.display = "none";
 
-const filterShown = () => {
+const filterShow = () => {
   productFilter.style.display = "";
   filterShowButton.style.display = "none";
   filterHideButton.style.display = "";
 };
 
-const filterHidden = () => {
+const filterHide = () => {
   productFilter.style.display = "none";
   filterShowButton.style.display = "";
   filterHideButton.style.display = "none";
 };
 
-filterShowButton.addEventListener("click", filterShown);
-filterHideButton.addEventListener("click", filterHidden);
+filterShowButton.addEventListener("click", filterShow);
+filterHideButton.addEventListener("click", filterHide);
 
 //// UPDATE BUTTON
 const updateButtonClick = (e) => {
   var productNeedUpdate = [];
   console.log(e.target.id);
-  route();
   for (let i = 0; i < productsListDuplicate.length; i++) {
     if (i == e.target.id) {
       productNeedUpdate.push({ id: i, content: productsListDuplicate[i] });
@@ -101,6 +100,7 @@ const updateButtonClick = (e) => {
       );
     }
   }
+  route(); //route to update pages
 };
 
 var updateButtons = document.getElementsByClassName("updateBtn");

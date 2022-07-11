@@ -893,6 +893,12 @@ container {
   width: 100%;
   height: auto;
 }
+@media screen and (max-width: 450px) {
+  .dashboard-products-list-content-table {
+    width: 100%;
+    overflow-x: auto;
+  }
+}
 .dashboard-products-list-content-table table {
   width: 100%;
   height: auto;
@@ -901,12 +907,6 @@ container {
   border: none;
   box-sizing: border-box;
   box-shadow: var(--box-shadow);
-}
-@media screen and (max-width: 450px) {
-  .dashboard-products-list-content-table table {
-    width: 200%;
-    overflow-x: auto;
-  }
 }
 .dashboard-products-list-content-table table thead {
   width: 100%;
@@ -974,16 +974,13 @@ container {
   color: var(--red-800);
 }
 .dashboard-products-list-content-table table tbody td i {
-  font-size: 1.2em;
+  font-size: 1.3em;
   cursor: pointer;
 }
-.dashboard-products-list-content-table table tbody td .updateBtn {
+.dashboard-products-list-content-table table tbody td a {
+  padding: 10px;
   color: var(--blue-700);
   text-decoration: none;
-  cursor: pointer;
-}
-.dashboard-products-list-content-table table tbody td .updateBtn i {
-  font-size: 1.2em;
   cursor: pointer;
 }
 .dashboard-products-list-content-table table tbody td button {
@@ -993,7 +990,7 @@ container {
   cursor: pointer;
 }
 .dashboard-products-list-content-table table tbody td a + button {
-  margin-left: 15px;
+  margin-left: 10px;
 }
 .dashboard-products-list-content-footer {
   display: flex;
