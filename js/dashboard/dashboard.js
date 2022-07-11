@@ -155,5 +155,4 @@ const createSocialLink = () => {
     socialLink.innerHTML += `<i class="${item.class}"></i>`;
   });
 };
-
 createSocialLink();

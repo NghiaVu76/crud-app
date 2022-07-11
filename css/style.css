@@ -249,8 +249,6 @@ container {
 }
 .sidebar-overview-content a {
   text-decoration: none;
-}
-.sidebar-overview-content button {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -267,19 +265,19 @@ container {
   padding: 0 0 0 20px;
 }
 @media screen and (max-width: 768px) {
-  .sidebar-overview-content button {
+  .sidebar-overview-content a {
     font-size: 12px;
     line-height: 120%;
     padding-left: 10px;
   }
 }
-.sidebar-overview-content button:hover {
+.sidebar-overview-content a:hover {
   box-shadow: var(--box-shadow);
   color: var(--blue-600);
   transform: scale(1);
   cursor: pointer;
 }
-.sidebar-overview-content button:active {
+.sidebar-overview-content a:active {
   box-shadow: var(--box-shadow);
   color: var(--blue-600);
 }
@@ -311,9 +309,6 @@ container {
   }
 }
 .sidebar-items a {
-  text-decoration: none;
-}
-.sidebar-items a button {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -321,6 +316,7 @@ container {
   height: 64px;
   background-color: #fff;
   border: none;
+  text-decoration: none;
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 14px;
@@ -330,30 +326,30 @@ container {
   padding: 0 0 0 20px;
 }
 @media screen and (max-width: 768px) {
-  .sidebar-items a button {
+  .sidebar-items a {
     font-size: 12px;
     line-height: 120%;
     padding-left: 10px;
   }
 }
-.sidebar-items a button i {
+.sidebar-items a i {
   width: 16.8px;
   height: 16.8px;
   margin-right: 5px;
   font-size: 1.1rem;
 }
-.sidebar-items a button p {
+.sidebar-items a p {
   margin: 0 0 0 12.6px;
   text-align: left;
 }
-.sidebar-items a button:hover {
+.sidebar-items a:hover {
   border-radius: 10px;
   box-shadow: var(--box-shadow);
   color: var(--blue-600);
   transform: scale(1.1);
   cursor: pointer;
 }
-.sidebar-items a button:active {
+.sidebar-items a:active {
   box-shadow: var(--box-shadow);
   color: var(--blue-600);
 }
@@ -447,7 +443,6 @@ container {
 .dashboard-chart-content #myChart {
   width: 100%;
   height: 100%;
-  max-width: 1285px;
   max-height: 430px;
   min-height: 430px;
   padding: 0 32px;
@@ -830,7 +825,7 @@ container {
   font-weight: 400;
   font-size: 13px;
   line-height: 24px;
-  color: var(--cool-gray-600);
+  color: var(--cool-gray-900);
 }
 .dashboard-products-list-content-header-searchbox button {
   height: 35px;
@@ -892,7 +887,7 @@ container {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: var(--cool-gray-500);
+  color: var(--cool-gray-900);
 }
 .dashboard-products-list-content-table {
   width: 100%;
@@ -982,8 +977,13 @@ container {
   font-size: 1.2em;
   cursor: pointer;
 }
-.dashboard-products-list-content-table table tbody td a {
+.dashboard-products-list-content-table table tbody td .updateBtn {
   color: var(--blue-700);
+  text-decoration: none;
+  cursor: pointer;
+}
+.dashboard-products-list-content-table table tbody td .updateBtn i {
+  font-size: 1.2em;
   cursor: pointer;
 }
 .dashboard-products-list-content-table table tbody td button {
@@ -1103,7 +1103,7 @@ container {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: var(--cool-gray-500);
+  color: var(--cool-gray-900);
 }
 .dashboard-add-products-content-group {
   display: flex;
@@ -1191,7 +1191,7 @@ container {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: var(--cool-gray-500);
+  color: var(--cool-gray-900);
 }
 .dashboard-update-products-content-group {
   display: flex;

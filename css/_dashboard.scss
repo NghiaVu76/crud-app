@@ -72,7 +72,7 @@
             #myChart {
                 width: 100%;
                 height: 100%;
-                max-width: 1285px;
+                // max-width: 1285px;
                 max-height: 430px;
                 min-height: 430px;
                 padding: 0 32px;
@@ -505,7 +505,7 @@
                         font-weight: 400;
                         font-size: 13px;
                         line-height: 24px;
-                        color: var(--cool-gray-600);
+                        color: var(--cool-gray-900);
 
                     }
 
@@ -580,7 +580,7 @@
                         font-weight: 400;
                         font-size: 16px;
                         line-height: 24px;
-                        color: var(--cool-gray-500);
+                        color: var(--cool-gray-900);
                     }
                 }
             }
@@ -686,9 +686,15 @@
                                 cursor: pointer;
                             }
 
-                            a {
+                            .updateBtn {
                                 color: var(--blue-700);
+                                text-decoration: none;
                                 cursor: pointer;
+
+                                i {
+                                    font-size: 1.2em;
+                                    cursor: pointer;
+                                }
                             }
 
                             button {
@@ -834,7 +840,7 @@
                     font-weight: 400;
                     font-size: 16px;
                     line-height: 24px;
-                    color: var(--cool-gray-500);
+                    color: var(--cool-gray-900);
                 }
             }
 
@@ -938,7 +944,7 @@
                     font-weight: 400;
                     font-size: 16px;
                     line-height: 24px;
-                    color: var(--cool-gray-500);
+                    color: var(--cool-gray-900);
                 }
             }
 

@@ -1,5 +1,5 @@
 import { productsList, socialIcons } from "../constants.js";
-// import { urlRoute } from "../route.js";
+import { route } from "../route.js";
 
 const createProductsList = (array) => {
   const productsTable = array
@@ -13,7 +13,7 @@ const createProductsList = (array) => {
       <td>${item.price}</td>
       <td><div class="${item.statusClass}">${item.status}</div></td>
       <td>
-        <a class="updateBtn"><i class="fa-solid fa-pen" id=${index}></i></a>
+        <a href="/update_products" class="updateBtn" target="_blank"><i class="fa fa-solid fa-pen" id=${index}></i></a>
         <button class="deleteBtn"><i class="fa-regular fa-trash-can" id="${index}"></i></button>
       </td>
       </tr>`;
@@ -26,7 +26,7 @@ const createProductsList = (array) => {
       <td>${item.price}</td>
       <td><div class="${item.statusClass}">${item.status}</div></td>
       <td>
-        <a class="updateBtn"><i class="fa-solid fa-pen" id=${index}></i></a>
+        <a href="/update_products" class="updateBtn"><i class="fa-solid fa-pen" id=${index}></i></a>
         <button class="deleteBtn" ><i class="fa-regular fa-trash-can" id="${index}"></i></button>
       </td>
       </tr>`;
@@ -42,7 +42,7 @@ createProductsList(productsListDuplicate); // tạo bảng sản phẩm (sử d�
 ///// add list categories for 'select' input
 const renderProductCategory = () => {
   let categoryArr = [];
-  productsList.map((item, index) => {
+  productsListDuplicate.map((item, index) => {
     categoryArr.push(item.category);
   });
 
@@ -87,11 +87,10 @@ filterShowButton.addEventListener("click", filterShown);
 filterHideButton.addEventListener("click", filterHidden);
 
 //// UPDATE BUTTON
-// constupdateProduct = (event) => {};
 const updateButtonClick = (e) => {
   var productNeedUpdate = [];
   console.log(e.target.id);
-
+  route();
   for (let i = 0; i < productsListDuplicate.length; i++) {
     if (i == e.target.id) {
       productNeedUpdate.push({ id: i, content: productsListDuplicate[i] });
