@@ -5,72 +5,87 @@
       <div class="dashboard-add-products-header-actions">
         <button id="saveBtn">Lưu lại</button>
         <button id="backBtn">
-          <a href="/" onclick="()=>{ route(); location.reload();}">Quay lại</a>
+          <a href="/products" onclick="()=>{ urlRoute(); location.reload();}"
+            >Quay lại</a
+          >
         </button>
       </div>
     </div>
     <div class="dashboard-add-products-content">
       <div class="dashboard-add-products-content-form" id="form">
+
         <div class="dashboard-add-products-content-group">
-          <input
-            class="form-input"
-            id="name"
-            type="text"
-            placeholder="Sản phẩm"
-          />
+          <div class="material-textfield">
+            <input
+              class="form-input"
+              id="name"
+              type="text"
+              placeholder=" "
+            />
+            <label for="name">Sản phẩm</label>
+          </div>
           <div class="error-message"></div>
         </div>
+
         <div class="dashboard-add-products-content-group">
-          <input
-            class="form-input"
-            id="quantity"
-            min="0"
-            type="number"
-            placeholder="Số lượng"
-          />
+          <div class="material-textfield">
+            <input
+              class="form-input"
+              id="quantity"
+              min="0"
+              type="number"
+              placeholder=" "
+            />
+            <label for="quantity">Số lượng</label>
+          </div>
           <div class="error-message"></div>
         </div>
+
         <div class="dashboard-add-products-content-group">
-          <input
-            class="form-input"
-            id="category"
-            type="text"
-            placeholder="Loại sản phẩm"
-            list="add_product_category"
-          />
-          <datalist id="add_product_category"></datalist>
+          <div class="material-textfield">
+            <select class="form-select" id="category">
+              <option value=""> --</option>
+            </select>
+            <label for="category">Loại sản phẩm
+          </div>
           <div class="error-message"></div>
         </div>
+
         <div class="dashboard-add-products-content-group">
-          <input
-            class="form-input"
-            id="status"
-            type="text"
-            placeholder="Trạng thái"
-            list="add_status"
-          />
-          <datalist id="add_status">
+          <div class="material-textfield">
+          <select class="form-select "id="status">
+            <option value=""> --</option>
             <option value="Còn hàng">Còn hàng</option>
             <option value="Hết hàng">Hết hàng</option>
-          </datalist>
+          </select>
+          <label for="status">Trạng thái</label>
+          </div>
           <div class="error-message"></div>
         </div>
+
         <div class="dashboard-add-products-content-group">
+          <div class="material-textfield">
           <input
             class="form-input"
             id="created date"
             type="date"
             placeholder="Ngày tạo"
           />
+          <label for="created date">Ngày tạo</label>
+          </div>
           <div class="error-message"></div>
         </div>
+
         <div class="dashboard-add-products-content-group">
+          <div class="material-textfield">
           <input
             class="form-input"
             id="price"
             type="text"
-            placeholder="Giá bán"
+            placeholder=" "
           />
+            <label for="price">Giá bán</label>
+          </div>
           <div class="error-message"></div>
         </div>
       </div>

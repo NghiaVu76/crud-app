@@ -1,8 +1,10 @@
 import { productsList, socialIcons } from "../constants.js";
 
+var productsListDuplicate = JSON.parse(localStorage.getItem("list-product")); // lấy mảng sản phẩm từ localStorage
+
 /////product category list
 var categoryArr = [];
-productsList.map((item, index) => {
+productsListDuplicate.map((item, index) => {
   categoryArr.push(item.category);
 });
 
@@ -15,43 +17,60 @@ var newCategoryArr = categoryArr.reduce((acc, category) => {
 }, []);
 
 // render category list <select>
-var addProductCategory = document.getElementById("add_product_category");
-// console.log(addProductCategory);
+var addProductCategory = document.getElementById("category");
+
 const renderProductCategory = () => {
   for (let i = 0; i < newCategoryArr.length - 1; i++) {
     if (addProductCategory != null)
       addProductCategory.innerHTML += `<option value="${newCategoryArr[i]}">${newCategoryArr[i]}</option>`;
   }
+  addProductCategory.innerHTML += `<option value="Khác">Khác</option>`;
 };
 
 ////FORM-INPUT VALIDATE
-var formElement = document.querySelector(".form");
 var inputElement = document.querySelectorAll(".form-input");
+
+var selectElement = document.querySelectorAll(".form-select");
+
 var errorElement = document.querySelectorAll(".error-message");
 
 const validateInput = () => {
   for (let i = 0; i < inputElement.length; i++) {
     if (inputElement[i].value == "") {
-      inputElement[i].parentElement.querySelector(
+      inputElement[i].parentElement.parentElement.querySelector(
         ".error-message"
       ).innerHTML = `* Please enter the product ${inputElement[i].id}`;
     } else {
-      inputElement[i].parentElement.querySelector(".error-message").innerHTML =
-        "";
+      inputElement[i].parentElement.parentElement.querySelector(
+        ".error-message"
+      ).innerHTML = "";
+    }
+  }
+  for (let i = 0; i < selectElement.length; i++) {
+    if (selectElement[i].value == "") {
+      selectElement[i].parentElement.parentElement.querySelector(
+        ".error-message"
+      ).innerHTML = `Please enter the product ${selectElement[i].id}`;
+    } else {
+      selectElement[i].parentElement.parentElement.querySelector(
+        ".error-message"
+      ).innerHTML = "";
     }
   }
 };
 inputElement.forEach((el) => el.addEventListener("keyup", validateInput));
+selectElement.forEach((el) => el.addEventListener("change", validateInput));
 
 ////ADD NEW PRODUCT
 const addProduct = () => {
   validateInput();
-  let errorElementArr = [];
+  let errorElementArr = []; // tạo mảng chứa danh sách các error
   for (let i = 0; i < errorElement.length; i++) {
-    errorElementArr.push(errorElement[i].innerText);
+    errorElementArr.push(errorElement[i].innerText); // push nội dung từng dòng error vào mảng
   }
-  let checkError = errorElementArr.every((value) => value === "");
+  let checkError = errorElementArr.every((value) => value === ""); //kiểm tra nếu tất cả error là rỗng thì tức là tát cả các input/select đã được nhập
   if (checkError) {
+    // nếu ko có lỗi
     let productName = document.getElementById("name").value;
     let quantity = document.getElementById("quantity").value;
     let category = document.getElementById("category").value;

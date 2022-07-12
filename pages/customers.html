@@ -1,3 +1,98 @@
-<div>
-  Customers<a href="/" onclick="()=>{ route(); location.reload();}">BACK</a>
+<div class="dashboard-customers-list">
+  <div class="dashboard-customers-list-container">
+    <div class="dashboard-customers-list-header">
+      <h1>Danh sách khách hàng</h1>
+    </div>
+    <div class="dashboard-customers-list-content">
+      <div class="dashboard-customers-list-content-header">
+        <div class="dashboard-customers-list-content-header-searchbox">
+          <input type="text" id="search-input" placeholder="Tìm kiếm..." />
+          <button id="search-button"><i class="fa fa-search"></i></button>
+        </div>
+        <div
+          class="dashboard-customers-list-content-header-actions"
+          id="productActions"
+        >
+          <button id="addbtn">
+            <a href="/add_products" onclick="urlRoute()">Thêm mới</a>
+          </button>
+          <button id="filterShowBtn">Bộ lọc</button>
+          <button id="filterHideBtn">Ẩn bộ lọc</button>
+        </div>
+      </div>
+      <div class="dashboard-customers-list-content-filter" id="product_filter">
+        <div class="dashboard-customers-list-content-filter-grid">
+          <input type="text" id="name-input" placeholder="Sản phẩm" />
+          <input
+            type="number"
+            id="quantity-input"
+            min="0"
+            placeholder="Số lượng"
+          />
+          <input
+            type="text"
+            id="category-input"
+            placeholder="Loại sản phẩm"
+            list="product_category"
+          />
+          <datalist id="product_category"></datalist>
+          <input
+            type="text"
+            id="status-input"
+            placeholder="Trạng thái"
+            list="status"
+          />
+          <datalist id="status">
+            <option value="Còn hàng">Còn hàng</option>
+            <option value="Hết hàng">Hết hàng</option>
+          </datalist>
+        </div>
+      </div>
+      <div class="dashboard-customers-list-content-table">
+        <table border="1" id="customer-table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">SẢN PHẨM</th>
+              <th scope="col">LOẠI</th>
+              <th scope="col">NGÀY TẠO SẢN PHẨM</th>
+              <th scope="col">SỐ LƯỢNG</th>
+              <th scope="col">GIÁ BÁN</th>
+              <th scope="col">TRẠNG THÁI</th>
+              <th scope="col">CHỨC NĂNG</th>
+            </tr>
+          </thead>
+          <tbody id="customerTableBody"></tbody>
+        </table>
+      </div>
+      <div class="dashboard-customers-list-content-footer">
+        <label for="items-quantity">Số bản ghi</label>
+        <select id="items-quantity">
+          <option value="5">5</option>
+          <option value="6" selected>6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+        <div id="table-pagination">
+          <div id="pagination-info"></div>
+          <button id="prevBtn">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+          <button id="nextBtn">
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-footer">
+  <div class="dashboard-footer-content">
+    <div class="dashboard-footer-title">
+      © 2022 VnSolution. All rights reserved.
+    </div>
+    <div class="dashboard-footer-group"></div>
+  </div>
 </div>

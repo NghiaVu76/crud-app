@@ -14,7 +14,7 @@
           id="productActions"
         >
           <button id="addbtn">
-            <a href="/add_products" onclick="route()">Thêm mới</a>
+            <a href="/add_products" onclick="urlRoute()">Thêm mới</a>
           </button>
           <button id="filterShowBtn">Bộ lọc</button>
           <button id="filterHideBtn">Ẩn bộ lọc</button>
@@ -22,30 +22,28 @@
       </div>
       <div class="dashboard-products-list-content-filter" id="product_filter">
         <div class="dashboard-products-list-content-filter-grid">
-          <input type="text" id="name-input" placeholder="Sản phẩm" />
-          <input
-            type="number"
-            id="quantity-input"
-            min="0"
-            placeholder="Số lượng"
-          />
-          <input
-            type="text"
-            id="category-input"
-            placeholder="Loại sản phẩm"
-            list="product_category"
-          />
-          <datalist id="product_category"></datalist>
-          <input
-            type="text"
-            id="status-input"
-            placeholder="Trạng thái"
-            list="status"
-          />
-          <datalist id="status">
-            <option value="Còn hàng">Còn hàng</option>
-            <option value="Hết hàng">Hết hàng</option>
-          </datalist>
+          <div class="material-textfield">
+            <input type="text" id="name-input" placeholder=" " />
+            <label for="name-input">Sản phẩm</label>
+          </div>
+          <div class="material-textfield">
+            <input type="number" id="quantity-input" min="0" placeholder=" " />
+            <label for="quantity-input">Số lượng</label>
+          </div>
+          <div class="material-textfield">
+            <select id="category-select">
+              <option value="">--</option>
+            </select>
+            <label for="category-select">Loại sản phẩm</label>
+          </div>
+          <div class="material-textfield">
+            <select id="status-select">
+              <option value="">--</option>
+              <option value="Còn hàng">Còn hàng</option>
+              <option value="Hết hàng">Hết hàng</option>
+            </select>
+            <label for="status-select">Trạng thái</label>
+          </div>
         </div>
       </div>
       <div class="dashboard-products-list-content-table">

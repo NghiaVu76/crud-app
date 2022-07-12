@@ -1,24 +1,22 @@
-import { productsList, socialIcons } from "../constants.js";
+import { socialIcons } from "../constants.js";
 
-var productNeedUpdate = JSON.parse(localStorage.getItem("productNeedUpdate"));
-// console.log(productNeedUpdate);
+var productsListDuplicate = JSON.parse(localStorage.getItem("list-product")); // lấy mảng sản phẩm từ localStorage
+var productNeedUpdate = JSON.parse(localStorage.getItem("productNeedUpdate")); //lấy mảng chứa sản phẩm cần update
 
-document.getElementById("update_name-input").value =
-  productNeedUpdate[0].content.productName;
-document.getElementById("update_quantity-input").value =
-  productNeedUpdate[0].content.quantity;
-document.getElementById("update_category-input").value =
-  productNeedUpdate[0].content.category;
-document.getElementById("update_status-input").value =
-  productNeedUpdate[0].content.status;
-// document.getElementById("update_createDate-input").value =
-//   productNeedUpdate[0].createdAt;
-document.getElementById("update_price-input").value =
-  productNeedUpdate[0].content.price;
+document.getElementById("update name").value =
+  productNeedUpdate[0].content.productName; //name input
+document.getElementById("update quantity").value =
+  productNeedUpdate[0].content.quantity; // quantity input
+document.getElementById("update category").value =
+  productNeedUpdate[0].content.category; // category input
+document.getElementById("update status").value =
+  productNeedUpdate[0].content.status; // status input
+document.getElementById("update price").value =
+  productNeedUpdate[0].content.price; // price input
 
-//product category
+/////PRODUCT CATEGORY FOR SELECT TAG
 var categoryArr = [];
-productsList.map((item, index) => {
+productsListDuplicate.map((item, index) => {
   categoryArr.push(item.category);
 });
 
@@ -31,30 +29,49 @@ let newCategoryArr = categoryArr.reduce((acc, category) => {
 }, []);
 
 // render category list <select>
-var productCategory = document.getElementById("update_product_category");
-for (let i = 0; i < newCategoryArr.length - 1; i++) {
-  productCategory.innerHTML += `<option value="${newCategoryArr[i]}">${newCategoryArr[i]}</option>`;
-}
+const renderProductCategory = () => {
+  var productCategory = document.getElementById("update category");
+  for (let i = 0; i < newCategoryArr.length - 1; i++) {
+    productCategory.innerHTML += `<option value="${newCategoryArr[i]}">${newCategoryArr[i]}</option>`;
+  }
+  productCategory.innerHTML += `<option value="Khác">Khác</option>`;
+};
+renderProductCategory();
 
 ////FORM-INPUT VALIDATE
-var formElement = document.querySelector(".update-form");
-var inputElement = document.querySelectorAll(".update_form-input");
+// var formElement = document.querySelector(".update-form");
+var inputElement = document.querySelectorAll(".update-form-input"); //lấy tất cả các input element của form
+var selectElement = document.querySelectorAll(".update-form-select"); //lấy tất cả select element của form
 var errorElement = document.querySelectorAll(".update_error-message");
 
 const validateUpdateInput = () => {
   for (let i = 0; i < inputElement.length; i++) {
     if (inputElement[i].value == "") {
-      inputElement[i].parentElement.querySelector(
+      inputElement[i].parentElement.parentElement.querySelector(
         ".update_error-message"
       ).innerHTML = `* Please enter the product ${inputElement[i].id}`;
     } else {
-      inputElement[i].parentElement.querySelector(
+      inputElement[i].parentElement.parentElement.querySelector(
+        ".update_error-message"
+      ).innerHTML = "";
+    }
+  }
+  for (let i = 0; i < selectElement.length; i++) {
+    if (selectElement[i].value == "") {
+      selectElement[i].parentElement.parentElement.querySelector(
+        ".update_error-message"
+      ).innerHTML = `* Please enter the product ${selectElement[i].id}`;
+    } else {
+      selectElement[i].parentElement.parentElement.querySelector(
         ".update_error-message"
       ).innerHTML = "";
     }
   }
 };
 inputElement.forEach((el) => el.addEventListener("keyup", validateUpdateInput));
+selectElement.forEach((el) =>
+  el.addEventListener("change", validateUpdateInput)
+);
 
 //// UPDATE PRODUCT
 const handleUpdate = () => {
@@ -65,12 +82,12 @@ const handleUpdate = () => {
   }
   let checkError = errorElementArr.every((value) => value === "");
   if (checkError) {
-    let productName = document.getElementById("update_name-input").value;
-    let quantity = document.getElementById("update_quantity-input").value;
-    let category = document.getElementById("update_category-input").value;
-    let status = document.getElementById("update_status-input").value;
-    let createdAt = document.getElementById("update_createDate-input").value;
-    let price = document.getElementById("update_price-input").value;
+    let productName = document.getElementById("update name").value;
+    let quantity = document.getElementById("update quantity").value;
+    let category = document.getElementById("update category").value;
+    let status = document.getElementById("update status").value;
+    let createdAt = document.getElementById("update create date").value;
+    let price = document.getElementById("update price").value;
     let statusClass;
     if (status === "Còn hàng") {
       statusClass = "stocking";
