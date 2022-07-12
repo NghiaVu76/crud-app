@@ -29,6 +29,11 @@
             line-height: 150%;
             text-align: center;
 
+            a {
+                text-decoration: none;
+                color: var(--cool-gray-900);
+            }
+
             @include mobile {
                 display: none;
             }

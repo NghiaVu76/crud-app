@@ -14,50 +14,43 @@
           id="productActions"
         >
           <button id="addbtn">
-            <a href="/add_products" onclick="urlRoute()">Thêm mới</a>
+            <a href="/add_customers" onclick="urlRoute()">Thêm mới</a>
           </button>
           <button id="filterShowBtn">Bộ lọc</button>
           <button id="filterHideBtn">Ẩn bộ lọc</button>
         </div>
       </div>
-      <div class="dashboard-customers-list-content-filter" id="product_filter">
+      <div class="dashboard-customers-list-content-filter" id="customer_filter">
         <div class="dashboard-customers-list-content-filter-grid">
-          <input type="text" id="name-input" placeholder="Sản phẩm" />
-          <input
-            type="number"
-            id="quantity-input"
-            min="0"
-            placeholder="Số lượng"
-          />
-          <input
-            type="text"
-            id="category-input"
-            placeholder="Loại sản phẩm"
-            list="product_category"
-          />
-          <datalist id="product_category"></datalist>
-          <input
-            type="text"
-            id="status-input"
-            placeholder="Trạng thái"
-            list="status"
-          />
-          <datalist id="status">
-            <option value="Còn hàng">Còn hàng</option>
-            <option value="Hết hàng">Hết hàng</option>
-          </datalist>
+          <div class="material-textfield">
+            <input type="text" id="customer name" placeholder=" " />
+            <label>Tên khách hàng</label>
+          </div>
+          <div class="material-textfield">
+            <input type="text" id="customer phone" placeholder=" " />
+            <label>Số điện thoại</label>
+          </div>
+          <div class="material-textfield">
+            <select id="customer address">
+              <option value="">--</option>
+            </select>
+            <label>Quận</label>
+          </div>
+          <div class="material-textfield">
+            <input type="date" id="customer DOB" placeholder="" />
+            <label>Ngày sinh</label>
+          </div>
         </div>
       </div>
       <div class="dashboard-customers-list-content-table">
         <table border="1" id="customer-table">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">SẢN PHẨM</th>
-              <th scope="col">LOẠI</th>
-              <th scope="col">NGÀY TẠO SẢN PHẨM</th>
-              <th scope="col">SỐ LƯỢNG</th>
-              <th scope="col">GIÁ BÁN</th>
-              <th scope="col">TRẠNG THÁI</th>
+              <th scope="col">HỌ VÀ TÊN</th>
+              <th scope="col">SỐ ĐIỆN THOẠI</th>
+              <th scope="col">NGÀY SINH</th>
+              <th scope="col">ĐỊA CHỈ</th>
+              <th scope="col">EMAIL</th>
               <th scope="col">CHỨC NĂNG</th>
             </tr>
           </thead>

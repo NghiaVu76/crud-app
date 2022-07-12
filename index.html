@@ -8,14 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
-    <script type="module" src="./js/route.js"></script>
   </head>
   <body>
     <div class="container">
         <div class="navbar">
             <div class="navbar-content">
                 <div class="navbar-left-content">
-                    <div class="navbar-left-content-logo">CRUD</div>
+                    <div class="navbar-left-content-logo"><a href="/" onclick="urlRoute()">CRUD</a></div>
                     <div class="navbar-left-content-bars">
                         <i class="fas fa-solid fa-bars-staggered"></i>
                     </div>
@@ -47,9 +46,9 @@
                         </div>
                     </div>
                     <div class="sidebar-items">
-                       <a href="/products"  onclick="urlRoute()"><i class="fas fa-database"></i><p>Danh sách sản phẩm</p></a>
-                        <a href="/customers" onclick="urlRoute()"><i class="fas fa-users"></i><p>Khách hàng</p></a>
-                        <a href="/carts" onclick="urlRoute()"><i class="fa-solid fa-cart-flatbed"></i><p>Đơn hàng</p></a>
+                       <a href="/products" onclick="urlRoute()"><i class="fas fa-database"></i>Danh sách sản phẩm</a>
+                        <a href="/customers" onclick="urlRoute()"><i class="fas fa-users"></i>Khách hàng</a>
+                        <a href="/carts" onclick="urlRoute()"><i class="fa-solid fa-cart-flatbed"></i>Đơn hàng</a>
                     </div>
                     </div>
                   </div>
@@ -64,9 +63,12 @@
             </div>
         </div>
     </div>
-    <script type="module" src="./js/products/productsList.js"></script>
+    <script type="module" src="./js/route.js"></script>
     <script type="module" src="./js/dashboard/dashboard.js"></script>
+    <script type="module" src="./js/products/productsList.js"></script>
     <script type="module" src="./js/products/addProducts.js"></script>
     <script type="module" src="./js/products/updateProducts.js"></script>
+    <script type="module" src="./js/customers/customerList.js"></script>
+
     </body>
 </html>

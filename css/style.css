@@ -111,6 +111,10 @@ container {
   line-height: 150%;
   text-align: center;
 }
+.navbar-left-content-logo a {
+  text-decoration: none;
+  color: var(--cool-gray-900);
+}
 @media screen and (max-width: 450px) {
   .navbar-left-content-logo {
     display: none;
@@ -335,12 +339,8 @@ container {
 .sidebar-items a i {
   width: 16.8px;
   height: 16.8px;
-  margin-right: 5px;
+  margin-right: 19px;
   font-size: 1.1rem;
-}
-.sidebar-items a p {
-  margin: 0 0 0 12.6px;
-  text-align: left;
 }
 .sidebar-items a:hover {
   border-radius: 10px;
@@ -1623,8 +1623,12 @@ container {
   justify-content: space-between;
   gap: 24px 16px;
 }
-.dashboard-customers-list-content-filter-grid input {
+.dashboard-customers-list-content-filter-grid .material-textfield {
+  position: relative;
   height: 56px;
+}
+.dashboard-customers-list-content-filter-grid .material-textfield input {
+  width: 100%;
   border: 1px solid var(--cool-gray-300);
   border-radius: 8px;
   padding: 12px;
@@ -1632,6 +1636,74 @@ container {
   font-size: 16px;
   line-height: 24px;
   color: var(--cool-gray-900);
+  transition: 0.1s ease-out;
+  padding: 1rem 0.7rem;
+  outline: none;
+}
+.dashboard-customers-list-content-filter-grid .material-textfield select {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--cool-gray-300);
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--cool-gray-900);
+}
+.dashboard-customers-list-content-filter-grid .material-textfield label {
+  position: absolute;
+  font-size: 1rem;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  color: gray;
+  padding: 0 0.3rem;
+  margin: 0 0.5rem;
+  transition: 0.1s ease-out;
+  transform-origin: left top;
+  pointer-events: none;
+}
+.dashboard-customers-list-content-filter-grid .material-textfield input:focus {
+  border-color: #6200EE;
+}
+.dashboard-customers-list-content-filter-grid .material-textfield input:focus + label {
+  color: #6200EE;
+  top: 0;
+  transform: translateY(-50%) scale(0.9);
+}
+.dashboard-customers-list-content-filter-grid .material-textfield input:not(:-moz-placeholder-shown) + label {
+  top: 0;
+  transform: translateY(-50%) scale(0.9);
+}
+.dashboard-customers-list-content-filter-grid .material-textfield input:not(:-ms-input-placeholder) + label {
+  top: 0;
+  transform: translateY(-50%) scale(0.9);
+}
+.dashboard-customers-list-content-filter-grid .material-textfield input:not(:placeholder-shown) + label {
+  top: 0;
+  transform: translateY(-50%) scale(0.9);
+}
+.dashboard-customers-list-content-filter-grid .material-textfield select:focus {
+  border-color: #6200EE;
+}
+.dashboard-customers-list-content-filter-grid .material-textfield select:focus + label {
+  color: #6200EE;
+  top: 0;
+  transform: translateY(-50%) scale(0.9);
+}
+.dashboard-customers-list-content-filter-grid .material-textfield select:not(:-moz-placeholder-shown) + label {
+  top: 0;
+  transform: translateY(-50%) scale(0.9);
+}
+.dashboard-customers-list-content-filter-grid .material-textfield select:not(:-ms-input-placeholder) + label {
+  top: 0;
+  transform: translateY(-50%) scale(0.9);
+}
+.dashboard-customers-list-content-filter-grid .material-textfield select:not(:placeholder-shown) + label {
+  top: 0;
+  transform: translateY(-50%) scale(0.9);
 }
 .dashboard-customers-list-content-table {
   width: 100%;
@@ -1700,22 +1772,6 @@ container {
   display: inline;
   border-radius: 10px;
   padding: 2px 10px;
-}
-.dashboard-customers-list-content-table table tbody td .stocking {
-  background-color: var(--green-100);
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 150%;
-  text-align: center;
-  color: var(--green-800);
-}
-.dashboard-customers-list-content-table table tbody td .out-of-stock {
-  background-color: var(--red-200);
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 150%;
-  text-align: center;
-  color: var(--red-800);
 }
 .dashboard-customers-list-content-table table tbody td i {
   font-size: 1.3em;

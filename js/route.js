@@ -1,7 +1,34 @@
+document.addEventListener("click", (e) => {
+  const { target } = e;
+  console.log(target);
+  if (!target.matches("button a") && !target.matches("div a")) {
+    return;
+  }
+  e.preventDefault();
+  urlRoute();
+});
+
+// document.querySelectorAll("a").forEach((el) =>
+//   el.addEventListener("click", (e) => {
+//     const { target } = e;
+//     console.log(target);
+//     e.preventDefault();
+//     urlRoute();
+//   })
+// );
+
+export const urlRoute = (event) => {
+  event = event || window.event;
+  window.history.pushState({}, "", event.target.href);
+  console.log("event.target.href", event.target.href);
+  console.log(2);
+  handleLocation();
+};
+
 const routes = {
   DASHBOARD: {
     pathname: "/",
-    link: "/pages/products.html",
+    link: "/pages/dashboard.html",
   },
 
   PRODUCTS: {
@@ -32,7 +59,7 @@ const routes = {
 
 const handleLocation = async () => {
   const path = window.location.pathname; // get pathname of current page
-  if (path.length === 0) path = "/";
+  if (path.length == 0) path = "/";
   console.log(path);
   let route;
   if (path == routes.DASHBOARD.pathname) {
@@ -54,57 +81,28 @@ const handleLocation = async () => {
   document.getElementById("main-page").innerHTML = html;
 };
 
-export const urlRoute = (event) => {
-  event = event || window.event;
-  event.preventDefault();
-  window.history.pushState({}, "", event.target.href);
-  console.log("event.target.href", event.target.href);
-  console.log(2);
-  handleLocation();
-};
-
-document.addEventListener("click", (e) => {
-  const { target } = e;
-  if (!target.matches("nav a") && !target.matches("div a")) {
-    return;
-  }
-  e.preventDefault();
-  urlRoute();
-});
-
 window.onpopstate = handleLocation;
 window.route = urlRoute;
-
 handleLocation();
-// document.querySelectorAll("a").forEach((el) =>
-//   el.addEventListener("click", (e) => {
-//     const { target } = e;
-//     console.log(target);
-//     if (!target.matches("nav a") || !target.matches("div a")) {
-//       return;
-//     }
-//     e.preventDefault();
-//     urlRoute();
-//   })
-// );
 
 ////
-// export const route = (event) => {
+// export const urlRoute = (event) => {
 //   event = event || window.event;
 //   event.preventDefault();
 //   window.history.pushState({}, "", event.target.href);
 //   console.log("event.target.href", event.target.href);
-//   handleLocation();
+//   console.log(2);
+//   location.reload();
 // };
 
 // const routes = {
-//   404: "pages/404.html",
-//   "/": "pages/products.html",
-//   "/products": "pages/products.html",
-//   "/add_products": "pages/products/add.html",
-//   "/update_products": "pages/products/update.html",
-//   "/customers": "pages/customers.html",
-//   "/carts": "pages/carts.html",
+//   404: "/pages/404.html",
+//   "/": "/pages/dashboard.html",
+//   "/products": "/pages/products.html",
+//   "/add_products": "/pages/products/add.html",
+//   "/update_products": "/pages/products/update.html",
+//   "/customers": "/pages/customers.html",
+//   "/carts": "/pages/carts.html",
 // };
 
 // const handleLocation = async () => {
@@ -117,7 +115,6 @@ handleLocation();
 //   document.getElementById("main-page").innerHTML = html;
 // };
 
-// window.route = route;
 // window.onpopstate = handleLocation;
-
+// window.route = urlRoute;
 // handleLocation();

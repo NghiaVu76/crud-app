@@ -1,4 +1,4 @@
-import { productsList, socialIcons } from "../constants.js";
+import { productList, socialIcons } from "../constants.js";
 import { urlRoute } from "../route.js";
 
 const createProductsList = (array) => {
@@ -161,7 +161,6 @@ const updateButtonClick = (e) => {
   console.log(e.target.id);
   for (let i = 0; i < productsListDuplicate.length; i++) {
     if (i == e.target.id) {
-      urlRoute();
       productNeedUpdate.push({ id: i, content: productsListDuplicate[i] });
       console.log(productNeedUpdate);
       localStorage.setItem(
@@ -170,7 +169,7 @@ const updateButtonClick = (e) => {
       );
     }
   }
-  //route to update pages
+  urlRoute(); //route to update pages
 };
 
 // add "click" event for all updateBtn

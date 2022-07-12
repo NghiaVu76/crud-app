@@ -1,84 +1,83 @@
-import { productsList, socialIcons } from "../constants.js";
+import { customerList, socialIcons } from "../constants.js";
 import { urlRoute } from "../route.js";
 
-const createCustomersList = (array) => {
-  const productsTable = array
+localStorage.setItem("list-customer", JSON.stringify(customerList));
+
+const createCustomerList = (array) => {
+  const customerTable = array
     .map(function (item, index) {
       if (index % 2 == 1) {
-        return `<tr class="even-row" id="product-row">
-      <td>${item.productName}</td>
-      <td>${item.category}</td>
-      <td class="time-column">${item.createdAt}</td>
-      <td>${item.quantity}</td>
-      <td>${item.price}</td>
-      <td><div class="${item.statusClass}">${item.status}</div></td>
+        return `<tr class="even-row" id="customer-row">
+      <td>${item.customerName}</td>
+      <td>${item.customerPhoneNumber}</td>
+      <td class="time-column">${item.customerDOB}</td>
+      <td>${item.customerAddress}</td>
+      <td>${item.customerEmail}</td>
       <td>
-        <a href="/update_products" class="updateBtn"><i class="fa fa-solid fa-pen" id=${index}></i></a>
+        <a href="/update_customers" class="updateBtn"><i class="fa fa-solid fa-pen" id=${index}></i></a>
         <button class="deleteBtn"><i class="fa-regular fa-trash-can" id="${index}"></i></button>
       </td>
       </tr>`;
       } else if (index % 2 == 0) {
         return `<tr id="product-row">
-      <td>${item.productName}</td>
-      <td>${item.category}</td>
-      <td class="time-column">${item.createdAt}</td>
-      <td>${item.quantity}</td>
-      <td>${item.price}</td>
-      <td><div class="${item.statusClass}">${item.status}</div></td>
+      <td>${item.customerName}</td>
+      <td>${item.customerPhoneNumber}</td>
+      <td class="time-column">${item.customerDOB}</td>
+      <td>${item.customerAddress}</td>
+      <td>${item.customerEmail}</td>
       <td>
-        <a href="/update_products" class="updateBtn" ><i class="fa-solid fa-pen" id=${index}></i></a>
+        <a href="/update_customers" class="updateBtn" ><i class="fa-solid fa-pen" id=${index}></i></a>
         <button class="deleteBtn" ><i class="fa-regular fa-trash-can" id="${index}"></i></button>
       </td>
       </tr>`;
       }
     })
     .join("");
-  document.getElementById("productTableBody").innerHTML = productsTable;
+  document.getElementById("customerTableBody").innerHTML = customerTable;
 };
-var productsListDuplicate = JSON.parse(localStorage.getItem("list-product")); //lấy dữ liệu từ localStorage
-// console.log("productsListDuplicate", productsListDuplicate);
-createCustomersList(productsListDuplicate); // tạo bảng sản phẩm (sử dụng mảng lấy từ localStorage)
+var customerListDuplicate = JSON.parse(localStorage.getItem("list-customer")); //lấy dữ liệu từ localStorage
+createCustomerList(customerListDuplicate); // tạo bảng sản phẩm (sử dụng mảng lấy từ localStorage)
 
 ///// add list categories for 'select' input
-const renderProductCategory = () => {
-  let categoryArr = [];
-  productsListDuplicate.map((item, index) => {
-    categoryArr.push(item.category);
+const renderCustomerAddress = () => {
+  let addressArr = [];
+  customerListDuplicate.map((item, index) => {
+    addressArr.push(item.customerAddress);
   });
 
   // delete the categories that duplicated
-  let newCategoryArr = categoryArr.reduce((acc, category) => {
-    if (acc.indexOf(category) === -1) {
-      acc.push(category);
+  let newAddressArr = addressArr.reduce((acc, address) => {
+    if (acc.indexOf(address) === -1) {
+      acc.push(address);
     }
     return acc;
   }, []);
 
   // render category list <select>
-  var ProductCategory = document.getElementById("product_category");
-  for (let i = 0; i < newCategoryArr.length - 1; i++) {
-    ProductCategory.innerHTML += `<option value="${newCategoryArr[i]}">${newCategoryArr[i]}</option>`;
+  var customerAddressElement = document.getElementById("customer address");
+  for (let i = 0; i < newAddressArr.length - 1; i++) {
+    customerAddressElement.innerHTML += `<option value="${newAddressArr[i]}">${newAddressArr[i]}</option>`;
   }
 };
 
-renderProductCategory();
+renderCustomerAddress();
 
 //// HIDE/SHOW FILTER
 const filterHideButton = document.getElementById("filterHideBtn");
 const filterShowButton = document.getElementById("filterShowBtn");
-const productFilter = document.getElementById("product_filter");
+const customerFilter = document.getElementById("customer_filter");
 
 filterHideButton.style.display = "none";
-productFilter.style.display = "none";
+customerFilter.style.display = "none";
 
 const filterShow = () => {
-  productFilter.style.display = "";
+  customerFilter.style.display = "";
   filterShowButton.style.display = "none";
   filterHideButton.style.display = "";
 };
 
 const filterHide = () => {
-  productFilter.style.display = "none";
+  customerFilter.style.display = "none";
   filterShowButton.style.display = "";
   filterHideButton.style.display = "none";
 };
@@ -88,15 +87,15 @@ filterHideButton.addEventListener("click", filterHide);
 
 //// UPDATE BUTTON
 const updateButtonClick = (e) => {
-  var productNeedUpdate = [];
+  var customerNeedUpdate = [];
   console.log(e.target.id);
-  for (let i = 0; i < productsListDuplicate.length; i++) {
+  for (let i = 0; i < customerListDuplicate.length; i++) {
     if (i == e.target.id) {
-      productNeedUpdate.push({ id: i, content: productsListDuplicate[i] });
-      console.log(productNeedUpdate);
+      customerNeedUpdate.push({ id: i, content: productsListDuplicate[i] });
+      console.log(customerNeedUpdate);
       localStorage.setItem(
         "productNeedUpdate",
-        JSON.stringify(productNeedUpdate)
+        JSON.stringify(customerNeedUpdate)
       );
     }
   }
@@ -244,7 +243,7 @@ const init = (tableName, itemsPerPage) => {
   inited = true;
 };
 
-var tableName = "product-table";
+var tableName = "customer-table";
 var pageNumber = 1;
 var itemsPerPage = parseInt(document.getElementById("items-quantity").value); // items per page = value of select tag
 

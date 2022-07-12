@@ -78,9 +78,9 @@ container {
 @import "dashboard.scss";
 
 //products
-@import "products.scss";
-@import "addProducts.scss";
-@import "updateProducts.scss";
+@import "./products/products";
+@import "./products/addProducts";
+@import "./products/updateProducts";
 
 //customers
-@import "customers.scss";
+@import "./customers/customers";

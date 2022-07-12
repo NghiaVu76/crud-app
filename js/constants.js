@@ -210,7 +210,7 @@ const socialIcons = [
   },
 ];
 
-const productsList = [
+const productList = [
   {
     productName: "Chuột máy tính",
     category: "Chuột",
@@ -393,6 +393,149 @@ const productsList = [
   },
 ];
 
+const customerList = [
+  {
+    customerName: "Nguyễn Văn A",
+    customerPhoneNumber: "0337893202",
+    customerDOB: "1999-07-03",
+    customerAddress: "Hà Đông, Hà Nội",
+    customerEmail: "nguyenvana@gmail.com",
+  },
+  {
+    customerName: "Nguyễn Văn B",
+    customerPhoneNumber: "0912772127",
+    customerDOB: "2001-05-23",
+    customerAddress: "Cầu Giấy, Hà Nội",
+    customerEmail: "nguyenvanb@gmail.com",
+  },
+  {
+    customerName: "Nguyễn Văn C",
+    customerPhoneNumber: "0898788987",
+    customerDOB: "1987-12-26",
+    customerAddress: "Hoàn Kiếm, Hà Nội",
+    customerEmail: "nguyenvanc@gmail.com",
+  },
+  {
+    customerName: "Nguyễn Văn D",
+    customerPhoneNumber: "0337893202",
+    customerDOB: "1989-02-06",
+    customerAddress: "Liên Chiểu, Đà Nẵng",
+    customerEmail: "nguyenvand@gmail.com",
+  },
+  {
+    customerName: "Nguyễn Văn E",
+    customerPhoneNumber: "0328244511",
+    customerDOB: "2004-10-13",
+    customerAddress: "Quận 2, TP.HCM",
+    customerEmail: "nguyenvane@gmail.com",
+  },
+  {
+    customerName: "Nguyễn Văn F",
+    customerPhoneNumber: "0702802902",
+    customerDOB: "1997-07-07",
+    customerAddress: "Tây Hồ, Hà Nội",
+    customerEmail: "nguyenvanf@gmail.com",
+  },
+  {
+    customerName: "Nguyễn Văn G",
+    customerPhoneNumber: "0540890760",
+    customerDOB: "1998-11-11",
+    customerAddress: "Hồng Bàng, Hải Phòng",
+    customerEmail: "nguyenvang@gmail.com",
+  },
+  {
+    customerName: "Nguyễn Văn H",
+    customerPhoneNumber: "0868888868",
+    customerDOB: "1986-06-08",
+    customerAddress: "Ba Đình, Hà Nội",
+    customerEmail: "nguyenvanh@gmail.com",
+  },
+  {
+    customerName: "Nguyễn Văn I",
+    customerPhoneNumber: "0789789789",
+    customerDOB: "2002-02-20",
+    customerAddress: "Bình Chánh, TP.HCM",
+    customerEmail: "nguyenvani@gmail.com",
+  },
+  {
+    customerName: "Nguyễn Thanh Tùng",
+    customerPhoneNumber: "0916161662",
+    customerDOB: "1994-07-05",
+    customerAddress: "Nam Từ Liêm, Hà Nội",
+    customerEmail: "nguyenvanj@gmail.com",
+  },
+  {
+    customerName: "Nguyễn Văn A",
+    customerPhoneNumber: "0337893202",
+    customerDOB: "1999-07-03",
+    customerAddress: "Hà Đông, Hà Nội",
+    customerEmail: "nguyenvana@gmail.com",
+  },
+  {
+    customerName: "Nguyễn Văn B",
+    customerPhoneNumber: "0912772127",
+    customerDOB: "2001-05-23",
+    customerAddress: "Cầu Giấy, Hà Nội",
+    customerEmail: "nguyenvanb@gmail.com",
+  },
+  {
+    customerName: "Nguyễn Văn C",
+    customerPhoneNumber: "0898788987",
+    customerDOB: "1987-12-26",
+    customerAddress: "Hoàn Kiếm, Hà Nội",
+    customerEmail: "nguyenvanc@gmail.com",
+  },
+  {
+    customerName: "Nguyễn Văn D",
+    customerPhoneNumber: "0337893202",
+    customerDOB: "1989-02-06",
+    customerAddress: "Liên Chiểu, Đà Nẵng",
+    customerEmail: "nguyenvand@gmail.com",
+  },
+  {
+    customerName: "Nguyễn Văn E",
+    customerPhoneNumber: "0328244511",
+    customerDOB: "2004-10-13",
+    customerAddress: "Quận 2, TP.HCM",
+    customerEmail: "nguyenvane@gmail.com",
+  },
+  {
+    customerName: "Nguyễn Văn F",
+    customerPhoneNumber: "0702802902",
+    customerDOB: "1997-07-07",
+    customerAddress: "Tây Hồ, Hà Nội",
+    customerEmail: "nguyenvanf@gmail.com",
+  },
+  {
+    customerName: "Nguyễn Văn G",
+    customerPhoneNumber: "0540890760",
+    customerDOB: "1998-11-11",
+    customerAddress: "Hồng Bàng, Hải Phòng",
+    customerEmail: "nguyenvang@gmail.com",
+  },
+  {
+    customerName: "Nguyễn Văn H",
+    customerPhoneNumber: "0868888868",
+    customerDOB: "1986-06-08",
+    customerAddress: "Ba Đình, Hà Nội",
+    customerEmail: "nguyenvanh@gmail.com",
+  },
+  {
+    customerName: "Nguyễn Văn I",
+    customerPhoneNumber: "0789789789",
+    customerDOB: "2002-02-20",
+    customerAddress: "Bình Chánh, TP.HCM",
+    customerEmail: "nguyenvani@gmail.com",
+  },
+  {
+    customerName: "Nguyễn Thanh Tùng",
+    customerPhoneNumber: "0916161662",
+    customerDOB: "1994-07-05",
+    customerAddress: "Nam Từ Liêm, Hà Nội",
+    customerEmail: "nguyenvanj@gmail.com",
+  },
+];
+
 export {
   menuItems,
   customerItems,
@@ -401,5 +544,6 @@ export {
   chartData,
   tableData,
   socialIcons,
-  productsList,
+  productList,
+  customerList,
 };

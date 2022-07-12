@@ -1,4 +1,4 @@
-import { productsList, socialIcons } from "../constants.js";
+import { socialIcons } from "../constants.js";
 
 var productsListDuplicate = JSON.parse(localStorage.getItem("list-product")); // lấy mảng sản phẩm từ localStorage
 
@@ -103,9 +103,6 @@ const addProduct = () => {
   } else {
     alert("Thêm thất bại!");
   }
-
-  productsList += listProduct;
-  console.log(productsList);
 };
 const saveButton = document.getElementById("saveBtn");
 saveButton.addEventListener("click", addProduct);
