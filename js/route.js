@@ -1,21 +1,11 @@
 document.addEventListener("click", (e) => {
   const { target } = e;
-  console.log(target);
   if (!target.matches("button a") && !target.matches("div a")) {
     return;
   }
   e.preventDefault();
   urlRoute();
 });
-
-// document.querySelectorAll("a").forEach((el) =>
-//   el.addEventListener("click", (e) => {
-//     const { target } = e;
-//     console.log(target);
-//     e.preventDefault();
-//     urlRoute();
-//   })
-// );
 
 export const urlRoute = (event) => {
   event = event || window.event;
@@ -28,7 +18,7 @@ export const urlRoute = (event) => {
 const routes = {
   DASHBOARD: {
     pathname: "/",
-    link: "/pages/dashboard.html",
+    link: "/pages/customers.html",
   },
 
   PRODUCTS: {
@@ -49,6 +39,16 @@ const routes = {
   CUSTOMERS: {
     pathname: "/customers",
     link: "/pages/customers.html",
+  },
+
+  ADD_CUSTOMERS: {
+    pathname: "/add_customers",
+    link: "/pages/customers/add.html",
+  },
+
+  UPDATE_CUSTOMERS: {
+    pathname: "/update_customers",
+    link: "/pages/customers/update.html",
   },
 
   CARTS: {
@@ -72,6 +72,10 @@ const handleLocation = async () => {
     route = routes.UPDATE_PRODUCTS.link;
   } else if (path == routes.CUSTOMERS.pathname) {
     route = routes.CUSTOMERS.link;
+  } else if (path == routes.ADD_CUSTOMERS.pathname) {
+    route = routes.CUSTOMERS.link;
+  } else if (path == routes.UPDATE_CUSTOMERS.pathname) {
+    route = routes.CUSTOMERS.link;
   } else if (path == routes.CARTS.pathname) {
     route = routes.CARTS.link;
   }
@@ -92,7 +96,7 @@ handleLocation();
 //   window.history.pushState({}, "", event.target.href);
 //   console.log("event.target.href", event.target.href);
 //   console.log(2);
-//   location.reload();
+//   handleLocation();
 // };
 
 // const routes = {

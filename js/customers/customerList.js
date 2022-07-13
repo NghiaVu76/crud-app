@@ -1,7 +1,7 @@
 import { customerList, socialIcons } from "../constants.js";
 import { urlRoute } from "../route.js";
 
-localStorage.setItem("list-customer", JSON.stringify(customerList));
+// localStorage.setItem("list-customer", JSON.stringify(customerList));
 
 const createCustomerList = (array) => {
   const customerTable = array
@@ -39,28 +39,29 @@ var customerListDuplicate = JSON.parse(localStorage.getItem("list-customer")); /
 createCustomerList(customerListDuplicate); // tạo bảng sản phẩm (sử dụng mảng lấy từ localStorage)
 
 ///// add list categories for 'select' input
-const renderCustomerAddress = () => {
-  let addressArr = [];
-  customerListDuplicate.map((item, index) => {
-    addressArr.push(item.customerAddress);
-  });
+var districtList = [];
 
-  // delete the categories that duplicated
-  let newAddressArr = addressArr.reduce((acc, address) => {
-    if (acc.indexOf(address) === -1) {
-      acc.push(address);
+const getDistrict = async () => {
+  await fetch(`https://provinces.open-api.vn/api/?depth=2`)
+    .then((response) => response.json())
+    .then((data) => {
+      districtList = data;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+  for (var i = 0; i < districtList.length; i++) {
+    for (var j = 0; j < districtList[i].districts.length; j++) {
+      if (districtList[i].districts[j].division_type === "quận") {
+        document.getElementById(
+          "customer address"
+        ).innerHTML += `<option value="${districtList[i].districts[j].name}, ${districtList[i].name}">${districtList[i].districts[j].name}, ${districtList[i].name}</option>`;
+      }
     }
-    return acc;
-  }, []);
-
-  // render category list <select>
-  var customerAddressElement = document.getElementById("customer address");
-  for (let i = 0; i < newAddressArr.length - 1; i++) {
-    customerAddressElement.innerHTML += `<option value="${newAddressArr[i]}">${newAddressArr[i]}</option>`;
   }
 };
-
-renderCustomerAddress();
+getDistrict();
 
 //// HIDE/SHOW FILTER
 const filterHideButton = document.getElementById("filterHideBtn");
@@ -91,7 +92,7 @@ const updateButtonClick = (e) => {
   console.log(e.target.id);
   for (let i = 0; i < customerListDuplicate.length; i++) {
     if (i == e.target.id) {
-      customerNeedUpdate.push({ id: i, content: productsListDuplicate[i] });
+      customerNeedUpdate.push({ id: i, content: customerListDuplicate[i] });
       console.log(customerNeedUpdate);
       localStorage.setItem(
         "productNeedUpdate",
@@ -111,9 +112,9 @@ for (let i = 0; i < updateButtons.length; i++) {
 
 //// DELETE BUTTON
 const handleDelete = (event) => {
-  productsListDuplicate.splice(event.target.id, 1); //xóa phần tử ở vị trí = id của element kích hoạt sự kiện
-  localStorage.setItem("list-product", JSON.stringify(productsListDuplicate));
-  createProductsList(productsListDuplicate); // render lại bảng sau khi xóa
+  customerListDuplicate.splice(event.target.id, 1); //xóa phần tử ở vị trí = id của element kích hoạt sự kiện
+  localStorage.setItem("list-customer", JSON.stringify(customerListDuplicate));
+  createCustomerList(customerListDuplicate); // render lại bảng sau khi xóa
 
   init(tableName, itemsPerPage); // thêm phân trang cho bảng mới sau khi xóa
   showPage(tableName, pageNumber, itemsPerPage);
@@ -137,17 +138,25 @@ var search_input = document.getElementById("search-input");
 
 function handleSearch() {
   var searchInput = search_input.value.toUpperCase();
-  // var quantityInput = quantity_input.value.toUpperCase();
-  // var categoryInput = category_input.value.toUpperCase();
-  // var statusInput = status_input.value.toUpperCase();
 
   let searchArr = [];
 
-  for (let i = 0; i < productsListDuplicate.length - 1; i++) {
-    if (searchInput == productsListDuplicate[i].productName.toUpperCase()) {
-      searchArr.push(productsListDuplicate[i]);
+  for (let i = 0; i < customerListDuplicate.length - 1; i++) {
+    if (
+      customerListDuplicate[i].customerName
+        .toUpperCase()
+        .includes(searchInput) ||
+      customerListDuplicate[i].customerAddress
+        .toUpperCase()
+        .includes(searchInput) ||
+      customerListDuplicate[i].customerPhoneNumber
+        .toUpperCase()
+        .includes(searchInput) ||
+      customerListDuplicate[i].customerDOB.toUpperCase().includes(searchInput)
+    ) {
+      searchArr.push(customerListDuplicate[i]);
       console.log("searchArr", searchArr);
-      createProductsList(searchArr); // tạo bảng với dữ liệu đã được lọc
+      createCustomerList(searchArr); // tạo bảng với dữ liệu đã được lọc
 
       init(tableName, itemsPerPage); // thêm phân trang cho bảng mới sau khi lọc
       showPage(tableName, pageNumber, itemsPerPage);
@@ -159,34 +168,40 @@ document
   .addEventListener("click", handleSearch);
 
 //////FILTER PRODUCTS
-var name_input = document.getElementById("name-input");
+var name_input = document.getElementById("customer name");
 
-var quantity_input = document.getElementById("quantity-input");
+var phone_number_input = document.getElementById("customer phone number");
 
-var category_input = document.getElementById("category-input");
+var address_input = document.getElementById("customer address");
 
-var status_input = document.getElementById("status-input");
+var DOB_input = document.getElementById("customer DOB");
 
 function handleFilter() {
   var nameInput = name_input.value.toUpperCase();
-  var quantityInput = quantity_input.value;
-  var categoryInput = category_input.value.toUpperCase();
-  var statusInput = status_input.value.toUpperCase();
+  var phoneNumberInput = phone_number_input.value;
+  var addressInput = address_input.value.toUpperCase();
+  var DOBInput = DOB_input.value.toUpperCase();
 
   let filterArr = [];
-  for (let i = 0; i < productsListDuplicate.length - 1; i++) {
+  for (let i = 0; i < customerListDuplicate.length - 1; i++) {
     if (
-      (nameInput == productsListDuplicate[i].productName.toUpperCase() ||
+      (customerListDuplicate[i].customerName
+        .toUpperCase()
+        .includes(nameInput) ||
         nameInput == "") &&
-      (quantityInput == productsListDuplicate[i].quantity ||
-        quantityInput == "") &&
-      (categoryInput == productsListDuplicate[i].category.toUpperCase() ||
-        categoryInput == "") &&
-      (statusInput == productsListDuplicate[i].status.toUpperCase() ||
-        statusInput == "")
+      (customerListDuplicate[i].customerPhoneNumber
+        .toUpperCase()
+        .includes(phoneNumberInput) ||
+        phoneNumberInput == "") &&
+      (customerListDuplicate[i].customerAddress
+        .toUpperCase()
+        .includes(addressInput) ||
+        addressInput == "") &&
+      (customerListDuplicate[i].customerDOB.toUpperCase().includes(DOBInput) ||
+        DOBInput == "")
     ) {
-      filterArr.push(productsListDuplicate[i]);
-      createProductsList(filterArr); // tạo bảng với dữ liệu đã được lọc
+      filterArr.push(customerListDuplicate[i]);
+      createCustomerList(filterArr); // tạo bảng với dữ liệu đã được lọc
 
       init(tableName, itemsPerPage); // thêm phân trang cho bảng mới sau khi lọc
       showPage(tableName, pageNumber, itemsPerPage);
@@ -195,9 +210,9 @@ function handleFilter() {
 }
 
 name_input.addEventListener("keyup", handleFilter);
-quantity_input.addEventListener("keyup", handleFilter);
-category_input.addEventListener("keyup", handleFilter);
-status_input.addEventListener("keyup", handleFilter);
+phone_number_input.addEventListener("keyup", handleFilter);
+address_input.addEventListener("change", handleFilter);
+DOB_input.addEventListener("keyup", handleFilter);
 
 //////TABLE PAGINATION
 //start

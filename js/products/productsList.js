@@ -76,7 +76,13 @@ function handleSearch() {
   let searchArr = [];
 
   for (let i = 0; i < productsListDuplicate.length - 1; i++) {
-    if (searchInput == productsListDuplicate[i].productName.toUpperCase()) {
+    if (
+      productsListDuplicate[i].productName
+        .toUpperCase()
+        .includes(searchInput) ||
+      productsListDuplicate[i].category.toUpperCase().includes(searchInput) ||
+      productsListDuplicate[i].status.toUpperCase().includes(searchInput)
+    ) {
       searchArr.push(productsListDuplicate[i]);
       console.log("searchArr", searchArr);
       createProductsList(searchArr); // tạo bảng với dữ liệu đã được lọc
@@ -132,13 +138,15 @@ function handleFilter() {
   let filterArr = [];
   for (let i = 0; i < productsListDuplicate.length - 1; i++) {
     if (
-      (nameInput == productsListDuplicate[i].productName.toUpperCase() ||
+      (productsListDuplicate[i].productName.toUpperCase().includes(nameInput) ||
         nameInput == "") &&
       (quantityInput == productsListDuplicate[i].quantity ||
         quantityInput == "") &&
-      (categoryInput == productsListDuplicate[i].category.toUpperCase() ||
+      (productsListDuplicate[i].category
+        .toUpperCase()
+        .includes(categoryInput) ||
         categoryInput == "") &&
-      (statusInput == productsListDuplicate[i].status.toUpperCase() ||
+      (productsListDuplicate[i].status.toUpperCase().includes(statusInput) ||
         statusInput == "")
     ) {
       filterArr.push(productsListDuplicate[i]);
