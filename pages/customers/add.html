@@ -1,0 +1,100 @@
+<div class="dashboard-add-customers">
+    <div class="dashboard-add-customers-container">
+      <div class="dashboard-add-customers-header">
+        <h1>Thêm mới khách hàng</h1>
+        <div class="dashboard-add-customers-header-actions">
+          <button id="saveBtn">Lưu lại</button>
+          <button id="backBtn">
+            <a href="/customers" onclick="()=>{ urlRoute(); location.reload();}"
+              >Quay lại</a
+            >
+          </button>
+        </div>
+      </div>
+      <div class="dashboard-add-customers-content">
+        <div class="dashboard-add-customers-content-form" id="form">
+
+          <div class="dashboard-add-customers-content-group">
+            <div class="material-textfield">
+              <input
+                class="form-input"
+                id="name"
+                type="text"
+                placeholder=" "
+              />
+              <label for="name">Họ và tên</label>
+            </div>
+            <div class="error-message"></div>
+          </div>
+
+          <div class="dashboard-add-customers-content-group">
+            <div class="material-textfield">
+              <input
+                class="form-input"
+                id="phone number"
+                type="text"
+                placeholder=" "
+              />
+              <label for="phone number">Số điện thoại</label>
+            </div>
+            <div class="error-message"></div>
+          </div>
+
+          <div class="dashboard-add-customers-content-group">
+            <div class="material-textfield">
+              <select class="form-select" id="province">
+                <option value=""> --</option>
+              </select>
+              <label for="province">Tỉnh/Thành phố
+            </div>
+            <div class="error-message"></div>
+          </div>
+
+          <div class="dashboard-add-customers-content-group">
+            <div class="material-textfield">
+            <select class="form-select "id="district">
+              <option value=""> --</option>
+            </select>
+            <label for="district">Quận/Huyện</label>
+            </div>
+            <div class="error-message"></div>
+          </div>
+
+          <div class="dashboard-add-customers-content-group">
+            <div class="material-textfield">
+            <input
+              class="form-input"
+              id="DOB"
+              type="date"
+              placeholder="Ngày tạo"
+            />
+            <label for="DOB">Ngày sinh</label>
+            </div>
+            <div class="error-message"></div>
+          </div>
+
+          <div class="dashboard-add-customers-content-group">
+            <div class="material-textfield">
+            <input
+              class="form-input"
+              id="email"
+              type="text"
+              placeholder=" "
+            />
+              <label for="email">Email</label>
+            </div>
+            <div class="error-message"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard-footer">
+    <div class="dashboard-footer-content">
+      <div class="dashboard-footer-title">
+        © 2022 VnSolution. All rights reserved.
+      </div>
+      <div class="dashboard-footer-group"></div>
+    </div>
+  </div>

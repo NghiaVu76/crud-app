@@ -1823,4 +1823,165 @@ container {
   background: none;
   color: var(--cool-gray-500);
   cursor: pointer;
+}
+
+.dashboard-add-customers {
+  width: 100%;
+  height: auto;
+  box-shadow: var(--box-shadow);
+  border-radius: 16px;
+  background-color: #fff;
+}
+.dashboard-add-customers-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: auto;
+}
+.dashboard-add-customers-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 16px 0;
+  width: calc(100% - 32px);
+  height: 60px;
+}
+.dashboard-add-customers-header h1 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 150%;
+  color: var(--cool-gray-900);
+}
+.dashboard-add-customers-header-actions {
+  display: flex;
+  flex-direction: row;
+  height: calc(100% - 20px);
+}
+.dashboard-add-customers-header-actions button {
+  height: 100%;
+  border-radius: 8px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.dashboard-add-customers-header-actions #saveBtn {
+  width: 80px;
+  background-color: var(--blue-600);
+  color: #fff;
+}
+.dashboard-add-customers-header-actions #backBtn {
+  width: 90px;
+  background-color: #fff;
+  color: var(--cool-gray-700);
+}
+.dashboard-add-customers-header-actions #backBtn a {
+  text-decoration: none;
+}
+.dashboard-add-customers-content {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 32px);
+  height: auto;
+  margin: 0 16px 16px;
+  padding: 32px 24px;
+}
+.dashboard-add-customers-content-form {
+  display: grid;
+  grid-template-columns: calc((100% - 16px) / 2) calc((100% - 16px) / 2);
+  justify-content: space-between;
+  gap: 24px 16px;
+}
+.dashboard-add-customers-content-group {
+  display: flex;
+  flex-direction: column;
+}
+.dashboard-add-customers-content-group .material-textfield {
+  position: relative;
+  height: 56px;
+}
+.dashboard-add-customers-content-group .material-textfield input {
+  width: 100%;
+  border: 1px solid var(--cool-gray-300);
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--cool-gray-900);
+  transition: 0.1s ease-out;
+  padding: 1rem 0.7rem;
+  outline: none;
+}
+.dashboard-add-customers-content-group .material-textfield select {
+  width: 100%;
+  height: 56px;
+  border: 1px solid var(--cool-gray-300);
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--cool-gray-900);
+}
+.dashboard-add-customers-content-group .material-textfield label {
+  position: absolute;
+  font-size: 1rem;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  color: gray;
+  padding: 0 0.3rem;
+  margin: 0 0.5rem;
+  transition: 0.1s ease-out;
+  transform-origin: left top;
+  pointer-events: none;
+}
+.dashboard-add-customers-content-group .material-textfield input:focus {
+  border-color: #6200EE;
+}
+.dashboard-add-customers-content-group .material-textfield input:focus + label {
+  color: #6200EE;
+  top: 0;
+  transform: translateY(-50%) scale(0.9);
+}
+.dashboard-add-customers-content-group .material-textfield input:not(:-moz-placeholder-shown) + label {
+  top: 0;
+  transform: translateY(-50%) scale(0.9);
+}
+.dashboard-add-customers-content-group .material-textfield input:not(:-ms-input-placeholder) + label {
+  top: 0;
+  transform: translateY(-50%) scale(0.9);
+}
+.dashboard-add-customers-content-group .material-textfield input:not(:placeholder-shown) + label {
+  top: 0;
+  transform: translateY(-50%) scale(0.9);
+}
+.dashboard-add-customers-content-group .material-textfield select:focus {
+  border-color: #6200EE;
+}
+.dashboard-add-customers-content-group .material-textfield select:focus + label {
+  color: #6200EE;
+  top: 0;
+  transform: translateY(-50%) scale(0.9);
+}
+.dashboard-add-customers-content-group .material-textfield select:not(:-moz-placeholder-shown) + label {
+  top: 0;
+  transform: translateY(-50%) scale(0.9);
+}
+.dashboard-add-customers-content-group .material-textfield select:not(:-ms-input-placeholder) + label {
+  top: 0;
+  transform: translateY(-50%) scale(0.9);
+}
+.dashboard-add-customers-content-group .material-textfield select:not(:placeholder-shown) + label {
+  top: 0;
+  transform: translateY(-50%) scale(0.9);
+}
+.dashboard-add-customers-content-group .error-message {
+  line-height: 150%;
+  color: var(--red-500);
+  font-size: 12px;
+  font-weight: 500;
 }/*# sourceMappingURL=style.css.map */

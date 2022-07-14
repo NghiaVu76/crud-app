@@ -18,7 +18,7 @@ export const urlRoute = (event) => {
 const routes = {
   DASHBOARD: {
     pathname: "/",
-    link: "/pages/customers.html",
+    link: "/pages/customers/add.html",
   },
 
   PRODUCTS: {
