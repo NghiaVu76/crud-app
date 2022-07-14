@@ -11,6 +11,8 @@ document.getElementById("update category").value =
   productNeedUpdate[0].content.category; // category input
 document.getElementById("update status").value =
   productNeedUpdate[0].content.status; // status input
+document.getElementById("update created date").value =
+  productNeedUpdate[0].content.createdAt;
 document.getElementById("update price").value =
   productNeedUpdate[0].content.price; // price input
 
@@ -86,7 +88,7 @@ const handleUpdate = () => {
     let quantity = document.getElementById("update quantity").value;
     let category = document.getElementById("update category").value;
     let status = document.getElementById("update status").value;
-    let createdAt = document.getElementById("update create date").value;
+    let createdAt = document.getElementById("update created date").value;
     let price = document.getElementById("update price").value;
     let statusClass;
     if (status === "Còn hàng") {

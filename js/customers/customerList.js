@@ -1,8 +1,6 @@
 import { customerList, socialIcons } from "../constants.js";
 import { urlRoute } from "../route.js";
 
-// localStorage.setItem("list-customer", JSON.stringify(customerList));
-
 const createCustomerList = (array) => {
   const customerTable = array
     .map(function (item, index) {
@@ -38,7 +36,7 @@ const createCustomerList = (array) => {
 var customerListDuplicate = JSON.parse(localStorage.getItem("list-customer")); //lấy dữ liệu từ localStorage
 createCustomerList(customerListDuplicate); // tạo bảng sản phẩm (sử dụng mảng lấy từ localStorage)
 
-///// add list categories for 'select' input
+///// add list districts for 'select' input
 var districtList = [];
 
 const getDistrict = async () => {
@@ -95,7 +93,7 @@ const updateButtonClick = (e) => {
       customerNeedUpdate.push({ id: i, content: customerListDuplicate[i] });
       console.log(customerNeedUpdate);
       localStorage.setItem(
-        "productNeedUpdate",
+        "customerNeedUpdate",
         JSON.stringify(customerNeedUpdate)
       );
     }

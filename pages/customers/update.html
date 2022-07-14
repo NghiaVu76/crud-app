@@ -1,0 +1,91 @@
+<div class="dashboard-update-customers">
+  <div class="dashboard-update-customers-container">
+    <div class="dashboard-update-customers-header">
+      <h1>Cập nhật khách hàng</h1>
+      <div class="dashboard-update-customers-header-actions">
+        <button id="updateSaveBtn">Lưu lại</button>
+        <button id="backBtn">
+          <a href="/customers" onclick="urlRoute()">Quay lại</a>
+        </button>
+      </div>
+    </div>
+    <div class="dashboard-update-customers-content">
+      <div class="dashboard-update-customers-content-form" id="update-form">
+        <div class="dashboard-update-customers-content-group">
+          <div class="material-textfield">
+            <input
+              class="update-form-input"
+              id="updated name"
+              type="text"
+              placeholder=" "
+            />
+            <label>Tên khách hàng</label>
+          </div>
+          <div class="update_error-message"></div>
+        </div>
+
+        <div class="dashboard-update-customers-content-group">
+          <div class="material-textfield">
+            <input
+              class="update-form-input"
+              id="updated phone number"
+              placeholder=" "
+            />
+            <label>Số điện thoại</label>
+          </div>
+          <div class="update_error-message"></div>
+        </div>
+
+        <div class="dashboard-update-customers-content-group">
+          <div class="material-textfield">
+            <select class="update-form-select" id="updated province">
+              <option value="">--</option>
+            </select>
+            <label>Tỉnh/Thành phố</label>
+          </div>
+          <div class="update_error-message"></div>
+        </div>
+
+        <div class="dashboard-update-customers-content-group">
+          <div class="material-textfield">
+            <select class="update-form-select" id="updated district">
+              <option value="">--</option>
+            </select>
+            <label>Quận/Huyện</label>
+          </div>
+          <div class="update_error-message"></div>
+        </div>
+
+        <div class="dashboard-update-customers-content-group">
+          <div class="material-textfield">
+            <input class="update-form-input" type="date" id="updated DOB" />
+            <label>Ngày sinh</label>
+          </div>
+          <div class="update_error-message"></div>
+        </div>
+
+        <div class="dashboard-update-customers-content-group">
+          <div class="material-textfield">
+            <input
+              class="update-form-input"
+              id="updated email"
+              type="text"
+              placeholder=" "
+            />
+            <label>Email</label>
+          </div>
+          <div class="update_error-message"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-footer">
+  <div class="dashboard-footer-content">
+    <div class="dashboard-footer-title">
+      © 2022 VnSolution. All rights reserved.
+    </div>
+    <div class="dashboard-footer-group"></div>
+  </div>
+</div>

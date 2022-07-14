@@ -1,6 +1,8 @@
 import { productList, socialIcons } from "../constants.js";
 import { urlRoute } from "../route.js";
 
+localStorage.setItem("list-product", JSON.stringify(productList));
+
 const createProductsList = (array) => {
   const productsTable = array
     .map(function (item, index) {
