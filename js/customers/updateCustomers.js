@@ -8,7 +8,6 @@ var customerNeedUpdate = JSON.parse(localStorage.getItem("customerNeedUpdate"));
 var addressString = customerNeedUpdate[0].content.customerAddress;
 var stringIndex = addressString.indexOf(",");
 var districtString = addressString.slice(0, stringIndex);
-console.log("districtString", districtString);
 var provinceString = addressString.slice(stringIndex + 2, addressString.length);
 
 document.getElementById("updated name").value =
@@ -113,13 +112,13 @@ const validateUpdateInput = () => {
   ) {
     phoneNumberInput.parentElement.parentElement.querySelector(
       ".update_error-message"
-    ).innerHTML = `*Invalid phone number`;
+    ).innerHTML = `* Invalid phone number`;
   }
 
   if (!emailInput.value.includes("@")) {
     emailInput.parentElement.parentElement.querySelector(
       ".update_error-message"
-    ).innerHTML = "*Invalid email";
+    ).innerHTML = "* Invalid email";
   }
 };
 inputElement.forEach((el) => el.addEventListener("keyup", validateUpdateInput));

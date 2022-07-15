@@ -68,7 +68,7 @@ const validateInput = () => {
     if (selectElement[i].value == "") {
       selectElement[i].parentElement.parentElement.querySelector(
         ".error-message"
-      ).innerHTML = `Please enter the customer ${selectElement[i].id}`;
+      ).innerHTML = `* Please enter the customer ${selectElement[i].id}`;
     } else {
       selectElement[i].parentElement.parentElement.querySelector(
         ".error-message"
@@ -86,13 +86,13 @@ const validateInput = () => {
   ) {
     phoneNumberInput.parentElement.parentElement.querySelector(
       ".error-message"
-    ).innerHTML = `*Invalid phone number`;
+    ).innerHTML = `* Invalid phone number`;
   }
 
   if (!emailInput.value.includes("@")) {
     emailInput.parentElement.parentElement.querySelector(
       ".error-message"
-    ).innerHTML = "*Invalid email";
+    ).innerHTML = "* Invalid email";
   }
 };
 inputElement.forEach((el) => el.addEventListener("keyup", validateInput));

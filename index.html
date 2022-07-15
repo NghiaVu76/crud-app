@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="./css/style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
   </head>
-  <body>
+  <body id="body">
     <div class="container">
         <div class="navbar">
             <div class="navbar-content">
                 <div class="navbar-left-content">
-                    <div class="navbar-left-content-logo"><a href="/" onclick="urlRoute()">CRUD</a></div>
+                    <div class="navbar-left-content-logo"><a href="#dashboard" data-toggle="collapse" data-target="#">CRUD</a></div>
                     <div class="navbar-left-content-bars">
                         <i class="fas fa-solid fa-bars-staggered"></i>
                     </div>
@@ -37,7 +37,7 @@
                   <div class="sidebar-top-content">
                     <div class="sidebar-overview">
                         <div class="sidebar-overview-content">
-                            <a href="/" onclick="urlRoute()" >
+                            <a href="#dashboard">
                                 <div class="sidebar-overview-content-icon">
                                     <i class="fas fa-solid fa-square-poll-vertical"></i>
                                 </div>
@@ -46,9 +46,9 @@
                         </div>
                     </div>
                     <div class="sidebar-items">
-                       <a href="products" onclick="urlRoute()"><i class="fas fa-database"></i>Danh sách sản phẩm</a>
-                        <a href="/customers" onclick="urlRoute()"><i class="fas fa-users"></i>Khách hàng</a>
-                        <a href="/carts" onclick="urlRoute()"><i class="fa-solid fa-cart-flatbed"></i>Đơn hàng</a>
+                       <a href="#products" ><i class="fas fa-database"></i>Danh sách sản phẩm</a>
+                        <a href="#customers" ><i class="fas fa-users"></i>Khách hàng</a>
+                        <a href="#carts" ><i class="fa-solid fa-cart-flatbed"></i>Đơn hàng</a>
                     </div>
                     </div>
                   </div>

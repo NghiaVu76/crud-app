@@ -1,7 +1,7 @@
 import { customerList, socialIcons } from "../constants.js";
-import { urlRoute } from "../route.js";
+import { renderPage } from "../route.js";
 
-const createCustomerList = (array) => {
+export const createCustomerList = (array) => {
   const customerTable = array
     .map(function (item, index) {
       if (index % 2 == 1) {
@@ -12,7 +12,7 @@ const createCustomerList = (array) => {
       <td>${item.customerAddress}</td>
       <td>${item.customerEmail}</td>
       <td>
-        <a href="/update_customers" class="updateBtn"><i class="fa fa-solid fa-pen" id=${index}></i></a>
+        <a href="#update_customers" class="updateBtn"><i class="fa fa-solid fa-pen" id=${index}></i></a>
         <button class="deleteBtn"><i class="fa-regular fa-trash-can" id="${index}"></i></button>
       </td>
       </tr>`;
@@ -24,7 +24,7 @@ const createCustomerList = (array) => {
       <td>${item.customerAddress}</td>
       <td>${item.customerEmail}</td>
       <td>
-        <a href="/update_customers" class="updateBtn" ><i class="fa-solid fa-pen" id=${index}></i></a>
+        <a href="#update_customers" class="updateBtn" ><i class="fa-solid fa-pen" id=${index}></i></a>
         <button class="deleteBtn" ><i class="fa-regular fa-trash-can" id="${index}"></i></button>
       </td>
       </tr>`;
@@ -98,7 +98,7 @@ const updateButtonClick = (e) => {
       );
     }
   }
-  urlRoute(); //route to update pages
+  renderPage(); //route to update pages and render
 };
 
 // add "click" event for all updateBtn

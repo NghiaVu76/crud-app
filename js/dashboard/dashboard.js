@@ -1,5 +1,4 @@
 import {
-  menuItems,
   customerItems,
   productItems,
   chartLabels,
@@ -78,14 +77,6 @@ const myChart = new Chart(lineChart, {
             }
             return label;
           },
-          // title: function (context) {
-          //   let title = "Sales: ";
-
-          //   if (context.parsed.y !== null) {
-          //     title += `${context.parsed.y}k VND`;
-          //   }
-          //   return title;
-          // },
         },
         position: "average",
         padding: "18.06px",
@@ -150,7 +141,7 @@ tableBody.innerHTML = tBody;
 
 //create social link icons
 const socialLink = document.querySelector(".dashboard-footer-group");
-const createSocialLink = () => {
+export const createSocialLink = () => {
   socialIcons.forEach((item) => {
     socialLink.innerHTML += `<i class="${item.class}"></i>`;
   });

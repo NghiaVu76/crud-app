@@ -1,7 +1,5 @@
 import { productList, socialIcons } from "../constants.js";
-import { urlRoute } from "../route.js";
-
-localStorage.setItem("list-product", JSON.stringify(productList));
+import { renderPage } from "../route.js";
 
 const createProductsList = (array) => {
   const productsTable = array
@@ -15,7 +13,7 @@ const createProductsList = (array) => {
       <td>${item.price}</td>
       <td><div class="${item.statusClass}">${item.status}</div></td>
       <td>
-        <a href="/update_products" class="updateBtn"><i class="fa fa-solid fa-pen" id=${index}></i></a>
+        <a href="#update_products" class="updateBtn"><i class="fa fa-solid fa-pen" id=${index}></i></a>
         <button class="deleteBtn"><i class="fa-regular fa-trash-can" id="${index}"></i></button>
       </td>
       </tr>`;
@@ -28,7 +26,7 @@ const createProductsList = (array) => {
       <td>${item.price}</td>
       <td><div class="${item.statusClass}">${item.status}</div></td>
       <td>
-        <a href="/update_products" class="updateBtn"><i class="fa-solid fa-pen" id=${index}></i></a>
+        <a href="#update_products" class="updateBtn"><i class="fa-solid fa-pen" id=${index}></i></a>
         <button class="deleteBtn" ><i class="fa-regular fa-trash-can" id="${index}"></i></button>
       </td>
       </tr>`;
@@ -144,9 +142,7 @@ function handleFilter() {
         nameInput == "") &&
       (quantityInput == productsListDuplicate[i].quantity ||
         quantityInput == "") &&
-      (productsListDuplicate[i].category
-        .toUpperCase()
-        .includes(categoryInput) ||
+      (categoryInput == productsListDuplicate[i].category.toUpperCase() ||
         categoryInput == "") &&
       (productsListDuplicate[i].status.toUpperCase().includes(statusInput) ||
         statusInput == "")
@@ -179,7 +175,7 @@ const updateButtonClick = (e) => {
       );
     }
   }
-  urlRoute(); //route to update pages
+  renderPage(); //route to update pages
 };
 
 // add "click" event for all updateBtn
