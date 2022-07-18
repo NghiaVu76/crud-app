@@ -53,6 +53,10 @@
                     border: 1px solid var(--cool-gray-300);
                     border-radius: 4px;
 
+                    &:focus {
+                        border: 1px solid var(--cool-gray-300)
+                    }
+
                     input {
                         display: flex;
                         align-items: center;
@@ -67,6 +71,10 @@
                         line-height: 24px;
                         color: var(--cool-gray-900);
 
+                        &:focus {
+                            border: none;
+                            background-color: black;
+                        }
                     }
 
                     button {
