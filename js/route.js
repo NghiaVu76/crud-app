@@ -137,6 +137,7 @@ export const urlRoute = (event) => {
 
 const routes = {
   404: "/pages/404.html",
+  "/": "/pages/dashboard.html",
   dashboard: "/pages/dashboard.html",
   products: "/pages/products.html",
   add_products: "/pages/products/add.html",
@@ -149,7 +150,7 @@ const routes = {
 
 const handleLocation = async () => {
   const path = window.location.hash.replace("#", "");
-  if (path.length == 0) path = "dashboard";
+  if (path.length == 0) path = "/";
   console.log(path);
   const route = routes[path] || routes["404"];
   console.log(route);
